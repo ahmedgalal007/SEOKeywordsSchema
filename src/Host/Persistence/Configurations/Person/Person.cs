@@ -1,6 +1,6 @@
-﻿using FSH.WebApi.Domain.Schemas.Things;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using SEOKeywordsSchema.Schemas.Things;
 
 namespace Host.Persistence.Configurations.Persons;
 

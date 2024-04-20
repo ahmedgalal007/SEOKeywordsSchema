@@ -1,6 +1,6 @@
-﻿using FSH.WebApi.Domain.Schemas.Things.CreativeWorks.Articles;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using SEOKeywordsSchema.Schemas.Things.CreativeWorks.Articles;
 
 namespace Host.Persistence.Configurations.CreativeWorks;
 

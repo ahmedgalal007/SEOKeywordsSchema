@@ -1,8 +1,7 @@
-﻿using FSH.WebApi.Domain.Schemas.Things;
-using FSH.WebApi.Domain.Schemas.Things.CreativeWorks.Articles;
-using Host.Common.ValueObjects;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using SEOKeywordsSchema.Schemas.Things;
+using SEOKeywordsSchema.Schemas.Things.CreativeWorks.Articles;
 
 namespace Host.Persistence.Configurations;
 
