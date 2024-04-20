@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace SEOKeywordsSchema.Schemas.ValueObjects.Contracts;
+﻿namespace SEOKeywordsSchema.Schemas.ValueObjects.Contracts;
 public abstract class ValueObject : IEquatable<ValueObject>
 {
     public abstract IEnumerable<object> GetAtomicValues();

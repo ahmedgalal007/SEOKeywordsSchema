@@ -1,6 +1,6 @@
 ﻿namespace SEOKeywordsSchema.Schemas.ValueObjects.Contracts;
 
-public abstract class TwoValues<T1,T2>
+public abstract class TwoValues<T1,T2> : ValueObject
     where T1 : class 
     where T2 : class
 {
@@ -34,4 +34,34 @@ public abstract class TwoValues<T1,T2>
     public bool HasValue1 { get; set; }
     public bool HasValue2 { get; set; }
     public bool IsSingle { get; set; }
+
+    public override Boolean Equals(Object? obj)
+    {
+        return base.Equals(obj);
+    }
+
+    public override IEnumerable<Object> GetAtomicValues()
+    {
+        return HasValue1?Value1:Value2;
+    }
+
+    public override Int32 GetHashCode()
+    {
+        return HasValue1? Value1.GetHashCode(): HasValue2? Value2.GetHashCode(): GetHashCode();
+    }
+
+    public override String ToString()
+    {
+        string result = string.Empty;
+        if (IsSingle) { 
+            if(HasValue1)
+            {
+                result = Value1.First().ToString() ?? string.Empty;
+            }else if(HasValue2)
+            {
+                result = Value2.First().ToString() ?? string.Empty;
+            }
+        }
+        return result;
+    }
 }

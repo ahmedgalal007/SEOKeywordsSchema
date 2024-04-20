@@ -7,6 +7,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Host", "Host\Host.csproj", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SEOKeywordsSchema.Schemas", "SEOKeywordsSchema.Schemas\SEOKeywordsSchema.Schemas.csproj", "{DC04CDFD-56D4-4186-84AD-BE06F181F2E2}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution", "Solution", "{767390D1-A0EA-45FE-A1E0-26C44E10AD42}"
+	ProjectSection(SolutionItems) = preProject
+		ReadMe.MD = ReadMe.MD
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
