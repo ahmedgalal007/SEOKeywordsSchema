@@ -1,13 +1,17 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using SEOKeywordsSchema.Schemas.SchemaProperties.BaseMixedTypes.BaseValueTypes;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace SEOKeywordsSchema.Schemas.Things.CreativeWorks;
-public class MediaObject : CreativeWork
+[EntityTypeConfiguration(typeof(EntityTypeConfigurationBase<MediaObject>))]
+public class MediaObject : BaseEntity
 {
-    public override string TypeName { get; protected set; } = nameof(MediaObject);
+    public virtual string TypeName { get; protected set; } = nameof(MediaObject);
+    public virtual CreativeWork Parent { get; protected set; }
 }
 
 

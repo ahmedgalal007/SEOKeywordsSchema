@@ -9,6 +9,13 @@
 
   <ItemGroup>
     <PackageReference Include="MassTransit" Version="8.2.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.18" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Abstractions" Version="7.0.18" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="7.0.18" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="SchemaProperties\Thing\" />
   </ItemGroup>
 
 </Project>

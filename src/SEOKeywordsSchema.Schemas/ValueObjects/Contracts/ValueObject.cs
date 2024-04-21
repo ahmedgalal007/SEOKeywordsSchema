@@ -1,28 +1,75 @@
 ﻿namespace SEOKeywordsSchema.Schemas.ValueObjects.Contracts;
-public abstract class ValueObject : IEquatable<ValueObject>
+public abstract class ValueObject : IEquatable<object?>
 {
-    public abstract IEnumerable<object> GetAtomicValues();
+    protected abstract IEnumerable<object> GetEqualityComponents();
 
     public override int GetHashCode()
     {
-        return GetAtomicValues()
-            .Aggregate(
-                default(int),
-                HashCode.Combine);
+        // return GetAtomicValues()
+        //     .Aggregate(
+        //         default(int),
+        //         HashCode.Combine);
+        return GetEqualityComponents()
+            .Select(x => x != null ? x.GetHashCode() : 0)
+            .Aggregate((x, y) => x ^ y);
     }
 
-    private bool ValuesAreEquales(ValueObject other)
+    protected static bool EqualOperator(ValueObject left, ValueObject right)
     {
-        return GetAtomicValues().SequenceEqual(other.GetAtomicValues());
+        if (ReferenceEquals(left, null) ^ ReferenceEquals(right, null))
+        {
+            return false;
+        }
+        return ReferenceEquals(left, right) || left.Equals(right);
+    }
+
+    protected static bool NotEqualOperator(ValueObject left, ValueObject right)
+    {
+        return !(EqualOperator(left, right));
     }
 
     public override bool Equals(object? obj)
     {
-        return obj is ValueObject other && ValuesAreEquales(other);
+        if (obj == null) return false;
+        if (ReferenceEquals(this, obj)) return true;
+
+        var other = (ValueObject)obj;
+
+        return this.GetEqualityComponents().SequenceEqual(other.GetEqualityComponents());
+
     }
 
-    public bool Equals(ValueObject? other)
+    //public Boolean Equals(ValueObject? other)
+    //{
+    //    return Equals(other);
+    //}
+
+    //public bool Equals(ValueObject? other)
+    //{
+    //    return other is not null && Equals(other);
+    //}
+
+    public static bool operator ==(ValueObject one, ValueObject two)
     {
-        return other is not null && ValuesAreEquales(other);
+        return EqualOperator(one, two);
+    }
+
+    public static bool operator !=(ValueObject one, ValueObject two)
+    {
+        return NotEqualOperator(one, two);
+    }
+}
+
+public abstract class ValueObjectWithId : ValueObject {
+    public DefaultIdType Id { get; set; }
+    public override bool Equals(object? obj)
+    {
+        if(base.Equals(obj)) return true;
+        if (obj.GetType().IsAssignableTo(GetType()))
+        {
+            var other = (ValueObjectWithId)obj;
+            return (this.Id != default) && (this.Id.Equals(other.Id));
+        }
+        return false;
     }
 }

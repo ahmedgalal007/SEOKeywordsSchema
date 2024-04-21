@@ -1,13 +1,16 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace SEOKeywordsSchema.Schemas.Things.CreativeWorks;
-public abstract class Article : CreativeWork
+[EntityTypeConfiguration(typeof(EntityTypeConfigurationBase<Article>))]
+public class Article : BaseEntity
 {
-    public override string TypeName { get; protected set; } = nameof(Article);
+    public virtual string TypeName { get; protected set; } = typeof(CreativeWork).FullName + '.' + nameof(Article);
+    public virtual CreativeWork Parent { get; set; }
 
 }
 

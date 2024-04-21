@@ -1,5 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using SEOKeywordsSchema.Schemas.SchemaProperties.BaseMixedTypes.BaseValueTypes;
 using SEOKeywordsSchema.Schemas.Things;
+using SEOKeywordsSchema.Schemas.Things.CreativeWorks;
 using SEOKeywordsSchema.Schemas.Things.CreativeWorks.Articles;
 
 namespace Host.Persistence.Contexts;
@@ -12,12 +14,14 @@ public class ApplicationDbContext : DbContext
     }
 
     // public DbSet<Person> Persons { get; set; }
-    public DbSet<NewsArticle> NewsArticles { get; set; }
+    // public DbSet<NewsArticle> NewsArticles { get; set; }
     public DbSet<Thing> Things { get; set; }
-    public DbSet<Report> Reports { get; set; }
-    public DbSet<SatiricalArticle> SatiricalArticles { get; set; }
-    public DbSet<Person> Persons { get; set; }
-    public DbSet<Organization> Organizations { get; set; }
+    public DbSet<Article> Articles { get; set; }
+
+    // public DbSet<Report> Reports { get; set; }
+    // public DbSet<SatiricalArticle> SatiricalArticles { get; set; }
+    // public DbSet<Person> Persons { get; set; }
+    // public DbSet<Organization> Organizations { get; set; }
     // public DbSet<Organization> Organizations { get; set; }
     // public DbSet<Place> Places { get; set; }
     // public DbSet<EventReservation> EventReservations { get; set; }

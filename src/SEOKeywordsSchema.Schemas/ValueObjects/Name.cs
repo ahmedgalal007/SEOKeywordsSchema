@@ -43,7 +43,7 @@ public class Name : ValueObject, IEquatable<Name>
         return obj is Name name && name.Equals(this);
     }
 
-    public override IEnumerable<object> GetAtomicValues()
+    protected override IEnumerable<Object> GetEqualityComponents()
     {
         yield return Value;
     }

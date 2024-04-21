@@ -1,4 +1,5 @@
 ﻿
+using Microsoft.EntityFrameworkCore;
 using Microsoft.VisualBasic;
 using System;
 using System.Collections.Generic;
@@ -8,9 +9,11 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace SEOKeywordsSchema.Schemas.Things;
-public class CreativeWork : Thing
+[EntityTypeConfiguration(typeof(EntityTypeConfigurationBase<CreativeWork>))]
+public class CreativeWork : BaseEntity
 {
-    public override string TypeName { get; protected set; } = nameof(CreativeWork);
+    public virtual string TypeName { get; protected set; } = nameof(CreativeWork);
+    public virtual Thing Parent { get; set; }
 
 }
 

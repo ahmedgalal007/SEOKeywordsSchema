@@ -1,10 +1,11 @@
-﻿using SEOKeywordsSchema.Schemas.Things;
+﻿using Microsoft.EntityFrameworkCore;
+using SEOKeywordsSchema.Schemas.Things;
 using SEOKeywordsSchema.Schemas.ValueObjects.Contracts;
 
-namespace SEOKeywordsSchema.Schemas.SchemaProperties;
-
+namespace SEOKeywordsSchema.Schemas.SchemaProperties.BaseMixedTypes;
 public class PersonOrOrganization : TwoValues<Person, Organization>
 {
+    protected PersonOrOrganization() { }
     public PersonOrOrganization(Person value1) : base(value1)
     {
     }
@@ -12,3 +13,4 @@ public class PersonOrOrganization : TwoValues<Person, Organization>
     {
     }
 }
+
