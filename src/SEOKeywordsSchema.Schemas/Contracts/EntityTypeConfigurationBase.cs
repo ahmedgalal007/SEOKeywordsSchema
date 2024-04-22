@@ -1,6 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using SEOKeywordsSchema.Schemas.ValueObjects.Contracts;
 
 namespace SEOKeywordsSchema.Schemas.Contracts;
 

@@ -3,7 +3,6 @@ using Bogus;
 using Host.Persistence.Contexts;
 using SEOKeywordsSchema.Schemas.Things;
 using Microsoft.EntityFrameworkCore;
-using SEOKeywordsSchema.Schemas.SchemaProperties.BaseMixedTypes.BaseValueTypes.OwnedBaseTypes;
 using SEOKeywordsSchema.Schemas.SchemaProperties.BaseMixedTypes;
 using SEOKeywordsSchema.Schemas.SchemaProperties.BaseMixedTypes.BaseValueTypes;
 using FluentAssertions;
@@ -38,6 +37,15 @@ public class ThingRepositoryTest
 
     }
 
+    //[TestMethod]
+    //public void get_thing_namespace_test()
+    //{
+    //    stub = GenerateData(1);
+    //    var data = stub.AsQueryable();
+    //    string _namespace = data.First().SchemaNameSpace();
+    //    Assert.IsNotNull(stub.FirstOrDefault());
+    //}
+
     private List<Thing> GenerateData(int count)
     {
         var faker = new Faker<Thing>()
@@ -46,9 +54,10 @@ public class ThingRepositoryTest
             .RuleFor(c => c.Description, f => f.Vehicle.Manufacturer())
             .RuleFor(c => c.DisambiguatingDescription, f => new Text(f.Vehicle.Model()))
             .RuleFor(c => c.Image, f => new Image(new URL(f.Image.LoremPixelUrl())))
-            .RuleFor(c => c.SameAs, f => new URL(""))
-            .RuleFor(c => c.MainEntityOfPage, f => new MainEntityOfPage(new URL("")))
-            .RuleFor(c => c.PotentialAction, f => new URL("").ToString())
+            .RuleFor(c => c.SameAs, f => new URL("http://aaa.bbb"))
+            .RuleFor(c => c.MainEntityOfPage, f => new MainEntityOfPage(new URL("http://ammm.com")))
+            .RuleFor(c => c.PotentialAction, f => new URL("http://sss.com").ToString())
+            // .RuleFor(c => c.SchemaNameSpace, f => (Func<string>)(() => "SEOKeywordsSchema.Schemas.Things"))
             .RuleFor(c => c.SubjectOf, f => new SubjectOf(new CreativeWork()));
 
 

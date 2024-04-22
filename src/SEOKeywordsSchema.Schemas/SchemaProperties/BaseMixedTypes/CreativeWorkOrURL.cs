@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using SEOKeywordsSchema.Schemas.SchemaProperties.BaseMixedTypes.BaseValueTypes;
+using SEOKeywordsSchema.Schemas.SchemaProperties.BaseMixedTypes.ValueObjects.Contracts;
 using SEOKeywordsSchema.Schemas.Things;
-using SEOKeywordsSchema.Schemas.ValueObjects.Contracts;
 
 namespace SEOKeywordsSchema.Schemas.SchemaProperties.BaseMixedTypes;
 public class CreativeWorkOrURL : TwoValues<CreativeWork, URL>

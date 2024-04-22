@@ -155,7 +155,9 @@ namespace Host.Migrations.Application
                     PotentialAction = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     SameAsId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
                     SubjectOfId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
-                    UrlId = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
+                    UrlId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    ParentId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    SchemaType = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -197,6 +199,12 @@ namespace Host.Migrations.Application
                         principalTable: "Text",
                         principalColumn: "Id");
                     table.ForeignKey(
+                        name: "FK_Thing_Thing_ParentId",
+                        column: x => x.ParentId,
+                        principalSchema: "Schema",
+                        principalTable: "Thing",
+                        principalColumn: "Id");
+                    table.ForeignKey(
                         name: "FK_Thing_URL_SameAsId",
                         column: x => x.SameAsId,
                         principalSchema: "Schema.Property",
@@ -217,7 +225,8 @@ namespace Host.Migrations.Application
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     TypeName = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    ParentId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    SchemaType = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ParentId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
                     MainEntityOfPageId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
                     SubjectOfId = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
                 },
@@ -241,8 +250,7 @@ namespace Host.Migrations.Application
                         column: x => x.ParentId,
                         principalSchema: "Schema",
                         principalTable: "Thing",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
@@ -252,7 +260,8 @@ namespace Host.Migrations.Application
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     TypeName = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    ParentId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
+                    ParentId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    SchemaType = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -392,6 +401,12 @@ namespace Host.Migrations.Application
                 schema: "Schema",
                 table: "Thing",
                 column: "NameId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Thing_ParentId",
+                schema: "Schema",
+                table: "Thing",
+                column: "ParentId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Thing_SameAsId",

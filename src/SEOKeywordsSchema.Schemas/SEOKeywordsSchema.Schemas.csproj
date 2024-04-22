@@ -14,8 +14,4 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="7.0.18" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="SchemaProperties\Thing\" />
-  </ItemGroup>
-
 </Project>

@@ -10,11 +10,15 @@ using System.Threading.Tasks;
 
 namespace SEOKeywordsSchema.Schemas.Things;
 [EntityTypeConfiguration(typeof(EntityTypeConfigurationBase<CreativeWork>))]
-public class CreativeWork : BaseEntity
+public class CreativeWork : BaseSchemaEntity, ISchemaEntity
 {
     public virtual string TypeName { get; protected set; } = nameof(CreativeWork);
-    public virtual Thing Parent { get; set; }
-
+    public String SchemaType { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+    public Thing? Parent { get; set; }
+    public Boolean IsLeafe()
+    {
+        throw new NotImplementedException();
+    }
 }
 
 

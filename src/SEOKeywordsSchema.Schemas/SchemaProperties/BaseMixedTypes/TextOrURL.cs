@@ -2,11 +2,10 @@
 using Microsoft.EntityFrameworkCore;
 using SEOKeywordsSchema.Schemas.SchemaProperties.BaseMixedTypes;
 using SEOKeywordsSchema.Schemas.SchemaProperties.BaseMixedTypes.BaseValueTypes;
-using SEOKeywordsSchema.Schemas.SchemaProperties.BaseMixedTypes.BaseValueTypes.OwnedBaseTypes;
-using SEOKeywordsSchema.Schemas.ValueObjects.Contracts;
+using SEOKeywordsSchema.Schemas.SchemaProperties.BaseMixedTypes.ValueObjects.Contracts;
 
 namespace SEOKeywordsSchema.Schemas.SchemaProperties;
-public class TextOrURL : TwoValues<Text, URL>
+public class TextOrURL : TwoValues<Text, URL>, IEquatable<TextOrURL>, IEquatable<Text>, IEquatable<URL>, IEquatable<String>
 {
     protected TextOrURL() { }
     public TextOrURL(Text value1) : base(value1)
@@ -16,9 +15,44 @@ public class TextOrURL : TwoValues<Text, URL>
     {
     }
 
+    protected override IEnumerable<Object> GetEqualityComponents()
+    {
+        return base.GetEqualityComponents();
+    }
     private string GetSingleValue()
     {
         return HasValue1 ? Value1.First().Value : HasValue2 ? Value2.First().Value.AbsoluteUri : string.Empty;
+    }
+
+    public Boolean Equals(TextOrURL? other)
+    {
+        return base.Equals((TwoValues<Text,URL>?)other);
+    }
+
+    public Boolean Equals(Text? other)
+    {
+        if (IsSingle && HasValue1 && Count == 1) {
+            return Value1.First().Equals(other); 
+        }
+        return false;
+    }
+
+    public Boolean Equals(URL? other)
+    {
+        if (IsSingle && HasValue2 && Count == 1)
+        {
+            return Value2.First().Equals(other);
+        }
+        return false;
+    }
+
+    public Boolean Equals(String? other)
+    {
+        if (IsSingle && ( HasValue1 ^ HasValue2 ) && Count == 1)
+        {
+            return Value2.First().Equals(other);
+        }
+        return false;
     }
     //public override Boolean Equals(object? obj)
     //{
@@ -30,21 +64,4 @@ public class TextOrURL : TwoValues<Text, URL>
     //                string.Equals(GetSingleValue(), (string)obj);
     //    return base.Equals(obj);
     //}
-}
-
-[EntityTypeConfiguration(typeof(PropertyTypeConfigurationBase<AdditionalType>))]
-public class AdditionalType : TextOrURL {
-    protected AdditionalType() {}
-    public AdditionalType(Text value1) : base(value1){}
-    public AdditionalType(URL value2) : base(value2){}
-
-    public static implicit operator AdditionalType(Text value)
-    {
-        return new AdditionalType(value);
-    }
-
-    public static implicit operator AdditionalType(URL value)
-    {
-        return new AdditionalType(value);
-    }
 }

@@ -1,8 +1,8 @@
 ﻿
 using Microsoft.EntityFrameworkCore;
-using SEOKeywordsSchema.Schemas.SchemaProperties.BaseMixedTypes.BaseValueTypes.OwnedBaseTypes;
+using SEOKeywordsSchema.Schemas.SchemaProperties.BaseMixedTypes.BaseValueTypes;
+using SEOKeywordsSchema.Schemas.SchemaProperties.BaseMixedTypes.ValueObjects.Contracts;
 using SEOKeywordsSchema.Schemas.Things.CreativeWorks.MediaObjects;
-using SEOKeywordsSchema.Schemas.ValueObjects.Contracts;
 
 namespace SEOKeywordsSchema.Schemas.SchemaProperties;
 public class TextOrTextObject : TwoValues<Text, TextObject>

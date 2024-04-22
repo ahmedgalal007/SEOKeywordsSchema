@@ -1,8 +1,7 @@
 ﻿using SEOKeywordsSchema.Schemas.Contracts;
-using SEOKeywordsSchema.Schemas.ValueObjects.Contracts;
+using SEOKeywordsSchema.Schemas.SchemaProperties.BaseMixedTypes.ValueObjects.Contracts;
 
-
-namespace FSH.WebApi.Domain.ValueObjects;
+namespace SEOKeywordsSchema.Schemas.SchemaProperties.BaseMixedTypes.ValueObjects;
 public class Name : ValueObject, IEquatable<Name>
 {
     public const int MaxLength = 50;
@@ -22,7 +21,7 @@ public class Name : ValueObject, IEquatable<Name>
         {
             return Result.Failure<Name>(new Error(
                 "Name.Empty",
-                "Name is empty." ));
+                "Name is empty."));
         }
         if (name.Length > MaxLength)
         {
@@ -43,7 +42,7 @@ public class Name : ValueObject, IEquatable<Name>
         return obj is Name name && name.Equals(this);
     }
 
-    protected override IEnumerable<Object> GetEqualityComponents()
+    protected override IEnumerable<object> GetEqualityComponents()
     {
         yield return Value;
     }

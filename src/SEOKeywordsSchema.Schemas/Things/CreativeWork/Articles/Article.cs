@@ -7,11 +7,17 @@ using System.Threading.Tasks;
 
 namespace SEOKeywordsSchema.Schemas.Things.CreativeWorks;
 [EntityTypeConfiguration(typeof(EntityTypeConfigurationBase<Article>))]
-public class Article : BaseEntity
+public class Article : BaseSchemaEntity, ISchemaEntity
 {
     public virtual string TypeName { get; protected set; } = typeof(CreativeWork).FullName + '.' + nameof(Article);
-    public virtual CreativeWork Parent { get; set; }
+    public CreativeWork Parent { get; set; }
+    // public override ISchemaEntity? Parent { get; set; }
+    public new String SchemaType { get; set; }
 
+    public Boolean IsLeafe()
+    {
+        throw new NotImplementedException();
+    }
 }
 
 

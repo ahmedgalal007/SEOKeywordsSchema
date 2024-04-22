@@ -1,13 +1,11 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using SEOKeywordsSchema.Schemas.Contracts;
-using SEOKeywordsSchema.Schemas.SchemaProperties;
 using SEOKeywordsSchema.Schemas.SchemaProperties.BaseMixedTypes;
 using SEOKeywordsSchema.Schemas.SchemaProperties.BaseMixedTypes.BaseValueTypes;
-using SEOKeywordsSchema.Schemas.SchemaProperties.BaseMixedTypes.BaseValueTypes.OwnedBaseTypes;
+using SEOKeywordsSchema.Schemas.SchemaProperties.Things.Property;
 
 namespace SEOKeywordsSchema.Schemas.Things;
 [EntityTypeConfiguration(typeof(EntityTypeConfigurationBase<Thing>))]
-public class Thing : BaseEntity<Guid>
+public class Thing : BaseSchemaEntity, ISchemaEntity
 {
     // protected abstract string Definition { get; }
     // public Guid Id { get; private set; }
@@ -23,4 +21,11 @@ public class Thing : BaseEntity<Guid>
     public URL? SameAs { get; private set; }
     public SubjectOf? SubjectOf { get; private set; }
     public URL? Url { get; private set; }
+    public Thing? Parent { get; set; }
+    public String SchemaType { get; set; }
+
+    public Boolean IsLeafe()
+    {
+        throw new NotImplementedException();
+    }
 }

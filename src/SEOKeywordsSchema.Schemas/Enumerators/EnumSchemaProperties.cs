@@ -1,5 +1,4 @@
 ﻿using SEOKeywordsSchema.Schemas.SchemaProperties.BaseMixedTypes.BaseValueTypes;
-using SEOKeywordsSchema.Schemas.SchemaProperties.BaseMixedTypes.BaseValueTypes.OwnedBaseTypes;
 using SEOKeywordsSchema.Schemas.Things;
 using SEOKeywordsSchema.Schemas.Things.Actions.AssessActions;
 using SEOKeywordsSchema.Schemas.Things.Actions.InteractActions;
