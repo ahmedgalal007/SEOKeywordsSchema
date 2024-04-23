@@ -1,11 +1,5 @@
-﻿using SEOKeywordsSchema.Schemas.Persistence.Contexts;
-using SEOKeywordsSchema.Schemas.SchemaProperties;
-using SEOKeywordsSchema.Schemas.Things;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using SEOKeywordsSchema.Schemas.Entities;
+using SEOKeywordsSchema.Schemas.Persistence.Contexts;
 
 namespace SEOKeywordsSchema.Schemas.test.Repositories;
 public class ThingRepository

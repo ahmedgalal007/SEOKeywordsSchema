@@ -1,5 +1,5 @@
 ﻿namespace SEOKeywordsSchema.Schemas.Contracts.BaseValueTypes.ValueObjects;
-public abstract class ValueObject : IEquatable<object?>
+public abstract class ValueObject : IEquatable<ValueObject?>, IEquatable<Object?>
 {
     protected abstract IEnumerable<object> GetEqualityComponents();
 
@@ -28,13 +28,19 @@ public abstract class ValueObject : IEquatable<object?>
         return !EqualOperator(left, right);
     }
 
+    public Boolean Equals(ValueObject? other)
+    {
+        return Equals(other);
+    }
 
-
-
-    //public Boolean Equals(ValueObject? other)
-    //{
-    //    return Equals(other);
-    //}
+    public override Boolean Equals(Object? other)
+    {
+        // return base.Equals(other);
+        if (other is null) return false;
+        if(other.GetType().Equals(GetType()))
+                return EqualOperator(this, (ValueObject)other);
+        return false;
+    }
 
     //public bool Equals(ValueObject? other)
     //{

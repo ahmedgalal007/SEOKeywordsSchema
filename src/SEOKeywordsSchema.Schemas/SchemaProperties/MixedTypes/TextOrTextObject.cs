@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using SEOKeywordsSchema.Schemas.Contracts.BaseValueTypes;
 using SEOKeywordsSchema.Schemas.Contracts.BaseValueTypes.MultibleValueTypes;
-using SEOKeywordsSchema.Schemas.Things.CreativeWorks.MediaObjects;
+using SEOKeywordsSchema.Schemas.Entities.CreativeWorks.MediaObjects;
 
 namespace SEOKeywordsSchema.Schemas.SchemaProperties;
 public class TextOrTextObject : TwoValues<Text, TextObject>

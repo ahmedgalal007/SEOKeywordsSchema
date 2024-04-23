@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
-using SEOKeywordsSchema.Schemas.Things.CreativeWorks;
-using SEOKeywordsSchema.Schemas.Things;
+using SEOKeywordsSchema.Schemas.Entities.CreativeWorks;
+using SEOKeywordsSchema.Schemas.Entities;
 using SEOKeywordsSchema.Schemas.SchemaProperties;
 
 namespace SEOKeywordsSchema.Schemas.Persistence.Contexts;

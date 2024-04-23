@@ -1,9 +1,9 @@
 ﻿using SEOKeywordsSchema.Schemas.Contracts.BaseValueTypes;
-using SEOKeywordsSchema.Schemas.Things;
-using SEOKeywordsSchema.Schemas.Things.Actions.AssessActions;
-using SEOKeywordsSchema.Schemas.Things.Actions.InteractActions;
-using SEOKeywordsSchema.Schemas.Things.CreativeWorks;
-using SEOKeywordsSchema.Schemas.Things.CreativeWorks.CreativeWorkSerieses;
+using SEOKeywordsSchema.Schemas.Entities;
+using SEOKeywordsSchema.Schemas.Entities.Actions.AssessActions;
+using SEOKeywordsSchema.Schemas.Entities.Actions.InteractActions;
+using SEOKeywordsSchema.Schemas.Entities.CreativeWorks;
+using SEOKeywordsSchema.Schemas.Entities.CreativeWorks.CreativeWorkSerieses;
 
 namespace SEOKeywordsSchema.Schemas.Enumerators;
 public abstract partial class EnumSchemaProperties : Enumeration<EnumSchemaProperties>

@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using SEOKeywordsSchema.Schemas.Contracts.BaseValueTypes.MultibleValueTypes;
-using SEOKeywordsSchema.Schemas.Things;
+using SEOKeywordsSchema.Schemas.Entities;
 
 namespace SEOKeywordsSchema.Schemas.SchemaProperties.BaseMixedTypes;
 public class PersonOrOrganization : TwoValues<Person, Organization>

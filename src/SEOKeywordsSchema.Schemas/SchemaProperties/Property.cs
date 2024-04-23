@@ -1,5 +1,5 @@
 ﻿using SEOKeywordsSchema.Schemas.Contracts;
-using SEOKeywordsSchema.Schemas.Things;
+using SEOKeywordsSchema.Schemas.Entities;
 
 namespace SEOKeywordsSchema.Schemas.SchemaProperties;
 public interface IProperty { Guid Id { get;} }

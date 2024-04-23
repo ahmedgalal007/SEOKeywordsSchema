@@ -1,3 +1,5 @@
+using SEOKeywordsSchema.Schemas.Contracts.Interfaces;
+
 namespace SEOKeywordsSchema.Schemas.Contracts;
 
 public abstract class AuditableEntity : AuditableEntity<DefaultIdType>

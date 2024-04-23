@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using SEOKeywordsSchema.Schemas.Contracts.BaseValueTypes.ValueObjects;
-using SEOKeywordsSchema.Schemas.Things;
+using SEOKeywordsSchema.Schemas.Entities;
 
 namespace SEOKeywordsSchema.Schemas.Contracts.BaseValueTypes;
 // [Owned]

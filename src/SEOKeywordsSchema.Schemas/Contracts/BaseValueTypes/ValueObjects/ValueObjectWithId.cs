@@ -1,4 +1,4 @@
-﻿using SEOKeywordsSchema.Schemas.Things.Actions.TransferActions;
+﻿using SEOKeywordsSchema.Schemas.Entities.Actions.TransferActions;
 
 namespace SEOKeywordsSchema.Schemas.Contracts.BaseValueTypes.ValueObjects;
 public abstract class ValueObjectWithId : ValueObject, IEquatable<ValueObjectWithId>, IEquatable<ValueObject>

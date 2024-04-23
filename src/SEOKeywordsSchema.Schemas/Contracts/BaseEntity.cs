@@ -1,5 +1,6 @@
 using System.ComponentModel.DataAnnotations.Schema;
 using MassTransit;
+using SEOKeywordsSchema.Schemas.Contracts.Interfaces;
 namespace SEOKeywordsSchema.Schemas.Contracts;
 
 public abstract class BaseEntity : BaseEntity<DefaultIdType>

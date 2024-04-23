@@ -1,5 +1,4 @@
-
-using SEOKeywordsSchema.Schemas.Contracts;
+using SEOKeywordsSchema.Schemas.Contracts.Interfaces;
 
 namespace SEOKeywordsSchema.Schemas.Events;
 
