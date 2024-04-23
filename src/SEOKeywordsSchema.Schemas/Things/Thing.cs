@@ -23,9 +23,4 @@ public class Thing : BaseSchemaEntity, ISchemaEntity
     public URL? Url { get; private set; }
     public Thing? Parent { get; set; }
     public String SchemaType { get; set; }
-
-    public Boolean IsLeafe()
-    {
-        throw new NotImplementedException();
-    }
 }
