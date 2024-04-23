@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using SEOKeywordsSchema.Schemas.Contracts.BaseValueTypes;
 using SEOKeywordsSchema.Schemas.SchemaProperties.BaseMixedTypes;
-using SEOKeywordsSchema.Schemas.SchemaProperties.BaseMixedTypes.BaseValueTypes;
 using SEOKeywordsSchema.Schemas.SchemaProperties.Things.Property;
 
 namespace SEOKeywordsSchema.Schemas.Things;
@@ -40,7 +40,7 @@ public class Thing : BaseSchemaEntity, ISchemaEntity
         };
 
         return result;
-}
+    }
 }
 
 

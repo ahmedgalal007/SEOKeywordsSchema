@@ -1,4 +1,4 @@
-﻿namespace SEOKeywordsSchema.Schemas.SchemaProperties.BaseMixedTypes.ValueObjects.Contracts;
+﻿namespace SEOKeywordsSchema.Schemas.Contracts.BaseValueTypes.ValueObjects;
 public abstract class ValueObject : IEquatable<object?>
 {
     protected abstract IEnumerable<object> GetEqualityComponents();
@@ -28,7 +28,7 @@ public abstract class ValueObject : IEquatable<object?>
         return !EqualOperator(left, right);
     }
 
-    
+
 
 
     //public Boolean Equals(ValueObject? other)

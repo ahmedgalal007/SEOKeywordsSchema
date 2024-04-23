@@ -1,10 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
+using SEOKeywordsSchema.Schemas.Contracts.BaseValueTypes;
 using SEOKeywordsSchema.Schemas.Persistence.Contexts;
 using SEOKeywordsSchema.Schemas.SchemaProperties;
 using SEOKeywordsSchema.Schemas.SchemaProperties.BaseMixedTypes;
-using SEOKeywordsSchema.Schemas.SchemaProperties.BaseMixedTypes.BaseValueTypes;
 using SEOKeywordsSchema.Schemas.test.Repositories;
 using SEOKeywordsSchema.Schemas.Things;
 

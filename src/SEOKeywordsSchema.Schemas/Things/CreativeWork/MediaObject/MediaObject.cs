@@ -1,10 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using SEOKeywordsSchema.Schemas.SchemaProperties.BaseMixedTypes.BaseValueTypes;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SEOKeywordsSchema.Schemas.Things.CreativeWorks;
 [EntityTypeConfiguration(typeof(EntityTypeConfigurationBase<MediaObject>))]

@@ -1,7 +1,7 @@
 ﻿
 using Microsoft.EntityFrameworkCore;
-using SEOKeywordsSchema.Schemas.SchemaProperties.BaseMixedTypes.BaseValueTypes;
-using SEOKeywordsSchema.Schemas.SchemaProperties.BaseMixedTypes.ValueObjects.Contracts;
+using SEOKeywordsSchema.Schemas.Contracts.BaseValueTypes;
+using SEOKeywordsSchema.Schemas.Contracts.BaseValueTypes.MultibleValueTypes;
 using SEOKeywordsSchema.Schemas.Things.CreativeWorks.MediaObjects;
 
 namespace SEOKeywordsSchema.Schemas.SchemaProperties;

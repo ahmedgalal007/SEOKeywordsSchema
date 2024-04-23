@@ -1,8 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using SEOKeywordsSchema.Schemas.SchemaProperties.BaseMixedTypes.BaseValueTypes;
 using SEOKeywordsSchema.Schemas.Things;
 using SEOKeywordsSchema.Schemas.Things.CreativeWorks;
-using SEOKeywordsSchema.Schemas.Things.CreativeWorks.Articles;
 
 namespace Host.Persistence.Contexts;
 

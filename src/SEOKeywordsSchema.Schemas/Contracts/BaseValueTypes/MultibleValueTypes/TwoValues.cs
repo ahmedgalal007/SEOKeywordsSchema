@@ -1,11 +1,9 @@
-﻿using SEOKeywordsSchema.Schemas.SchemaProperties.BaseMixedTypes.BaseValueTypes;
-using System.Collections;
-using System.IO;
-using System.Net.WebSockets;
-using System.Reflection.Emit;
-using System.Runtime.CompilerServices;
+﻿using System.Collections;
+using SEOKeywordsSchema.Schemas.Contracts.BaseValueTypes.ValueObjects;
+using SEOKeywordsSchema.Schemas.Contracts.BaseValueTypes.ValueObjects.Interfaces;
 
-namespace SEOKeywordsSchema.Schemas.SchemaProperties.BaseMixedTypes.ValueObjects.Contracts;
+
+namespace SEOKeywordsSchema.Schemas.Contracts.BaseValueTypes.MultibleValueTypes;
 
 public abstract class TwoValues<T1, T2> : ValueObjectWithId, IValues, IReadOnlyCollection<object?>, IEnumerable<object?>
     where T1 : class
@@ -58,7 +56,7 @@ public abstract class TwoValues<T1, T2> : ValueObjectWithId, IValues, IReadOnlyC
         return HasValue1 ? Value1.Count : HasValue2 ? Value2.Count : 0;
     }
 
-    public Boolean Equals(TwoValues<T1,T2>? other)
+    public bool Equals(TwoValues<T1, T2>? other)
     {
         if (ReferenceEquals(null, other) ^ ReferenceEquals(null, this)) return false;
         if (ReferenceEquals(this, other)) return true;

@@ -1,8 +1,8 @@
 ﻿
 using Microsoft.EntityFrameworkCore;
+using SEOKeywordsSchema.Schemas.Contracts.BaseValueTypes;
+using SEOKeywordsSchema.Schemas.Contracts.BaseValueTypes.MultibleValueTypes;
 using SEOKeywordsSchema.Schemas.SchemaProperties.BaseMixedTypes;
-using SEOKeywordsSchema.Schemas.SchemaProperties.BaseMixedTypes.BaseValueTypes;
-using SEOKeywordsSchema.Schemas.SchemaProperties.BaseMixedTypes.ValueObjects.Contracts;
 
 namespace SEOKeywordsSchema.Schemas.SchemaProperties;
 public class TextOrURL : TwoValues<Text, URL>, IEquatable<TextOrURL>, IEquatable<Text>, IEquatable<URL>, IEquatable<String>

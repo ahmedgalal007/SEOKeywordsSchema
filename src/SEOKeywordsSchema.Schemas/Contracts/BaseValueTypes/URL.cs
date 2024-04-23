@@ -1,14 +1,14 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using SEOKeywordsSchema.Schemas.SchemaProperties.BaseMixedTypes.ValueObjects.Contracts;
+using SEOKeywordsSchema.Schemas.Contracts.BaseValueTypes.ValueObjects;
 
-namespace SEOKeywordsSchema.Schemas.SchemaProperties.BaseMixedTypes.BaseValueTypes;
+namespace SEOKeywordsSchema.Schemas.Contracts.BaseValueTypes;
 [EntityTypeConfiguration(typeof(PropertyTypeConfigurationBase<URL>))]
 public class URL : ValueObjectWithId, IEquatable<URL>, IEquatable<Text>, IEquatable<string>
 {
     public URL() { }
     public URL(string value) { Value = new Uri(value); }
     public Uri Value { get; set; }
-    protected override IEnumerable<Object> GetEqualityComponents()
+    protected override IEnumerable<object> GetEqualityComponents()
     {
         yield return Value;
     }
@@ -21,22 +21,22 @@ public class URL : ValueObjectWithId, IEquatable<URL>, IEquatable<Text>, IEquata
     }
 
     public string GetCleanUri() => Value.AbsoluteUri.TrimEnd('/').ToLower();
-    public Boolean Equals(String? other)
+    public bool Equals(string? other)
     {
-        return String.Equals(GetCleanUri(), other);
+        return string.Equals(GetCleanUri(), other);
     }
 
-    public Boolean Equals(URL? other)
+    public bool Equals(URL? other)
     {
         if (base.Equals(other)) return true;
-        if(String.Equals(Value.AbsoluteUri, other?.Value.AbsoluteUri)) return true;
+        if (string.Equals(Value.AbsoluteUri, other?.Value.AbsoluteUri)) return true;
         return false;
     }
 
-    public Boolean Equals(Text? other)
+    public bool Equals(Text? other)
     {
         if (base.Equals(other)) return true;
-        if (String.Equals(Value.AbsoluteUri, other?.Value)) return true;
+        if (string.Equals(Value.AbsoluteUri, other?.Value)) return true;
         return false;
     }
 

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections;
 
-namespace SEOKeywordsSchema.Schemas.SchemaProperties.BaseMixedTypes.ValueObjects.Contracts;
+namespace SEOKeywordsSchema.Schemas.Contracts.BaseValueTypes.ValueObjects.Interfaces;
 
 /// <summary>
 /// An <see cref="IEnumerable"/> with a count.

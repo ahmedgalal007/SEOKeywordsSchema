@@ -1,8 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using SEOKeywordsSchema.Schemas.SchemaProperties.BaseMixedTypes.ValueObjects.Contracts;
+using SEOKeywordsSchema.Schemas.Contracts.BaseValueTypes.ValueObjects;
 using SEOKeywordsSchema.Schemas.Things;
 
-namespace SEOKeywordsSchema.Schemas.SchemaProperties.BaseMixedTypes.BaseValueTypes;
+namespace SEOKeywordsSchema.Schemas.Contracts.BaseValueTypes;
 // [Owned]
 [EntityTypeConfiguration(typeof(PropertyTypeConfigurationBase<Text>))]
 public class Text : ValueObjectWithId, IEquatable<Text>, IEquatable<URL>, IEquatable<string>
@@ -34,17 +34,17 @@ public class Text : ValueObjectWithId, IEquatable<Text>, IEquatable<URL>, IEquat
         return Value.GetHashCode();
     }
 
-    public Boolean Equals(Text? other)
+    public bool Equals(Text? other)
     {
         return Id == other.Id;
     }
 
-    public Boolean Equals(String? other)
+    public bool Equals(string? other)
     {
         return !string.IsNullOrEmpty(other) && !string.IsNullOrWhiteSpace(other) && Value == other;
     }
 
-    public Boolean Equals(URL? other)
+    public bool Equals(URL? other)
     {
         return other != null && other.Value?.AbsoluteUri?.TrimEnd('/').ToLower() == Value?.TrimEnd('/').ToLower();
     }

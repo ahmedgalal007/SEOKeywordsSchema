@@ -1,7 +1,6 @@
-﻿using SEOKeywordsSchema.Schemas.Contracts;
-using SEOKeywordsSchema.Schemas.SchemaProperties.BaseMixedTypes.ValueObjects.Contracts;
+﻿using SEOKeywordsSchema.Schemas.Contracts.BaseValueTypes.ValueObjects;
 
-namespace SEOKeywordsSchema.Schemas.SchemaProperties.BaseMixedTypes.ValueObjects;
+namespace SEOKeywordsSchema.Schemas.Contracts.BaseValueTypes;
 public class Name : ValueObject, IEquatable<Name>
 {
     public const int MaxLength = 50;

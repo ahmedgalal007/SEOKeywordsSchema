@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using SEOKeywordsSchema.Schemas.SchemaProperties.BaseMixedTypes.BaseValueTypes;
+using SEOKeywordsSchema.Schemas.Contracts.BaseValueTypes;
 
 namespace SEOKeywordsSchema.Schemas.SchemaProperties.Things.Property;
 

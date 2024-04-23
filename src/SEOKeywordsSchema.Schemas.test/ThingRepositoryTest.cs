@@ -1,11 +1,11 @@
 using Moq;
 using Bogus;
 using Host.Persistence.Contexts;
+using FluentAssertions;
 using SEOKeywordsSchema.Schemas.Things;
 using Microsoft.EntityFrameworkCore;
 using SEOKeywordsSchema.Schemas.SchemaProperties.BaseMixedTypes;
-using SEOKeywordsSchema.Schemas.SchemaProperties.BaseMixedTypes.BaseValueTypes;
-using FluentAssertions;
+using SEOKeywordsSchema.Schemas.Contracts.BaseValueTypes;
 
 
 namespace SEOKeywordsSchema.Schemas.test;
