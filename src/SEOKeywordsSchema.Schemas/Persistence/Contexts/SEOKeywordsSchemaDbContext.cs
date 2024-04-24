@@ -7,6 +7,10 @@ using SEOKeywordsSchema.Schemas.SchemaProperties;
 namespace SEOKeywordsSchema.Schemas.Persistence.Contexts;
 public class SEOKeywordsSchemaDbContext : DbContext
 {
+    public SEOKeywordsSchemaDbContext(DbContextOptions options) : base(options)
+    {
+
+    }
     public SEOKeywordsSchemaDbContext(DbContextOptions<SEOKeywordsSchemaDbContext> options) : base(options)
     {
         
