@@ -42,6 +42,21 @@ public class Thing : BaseSchemaEntity, ISchemaEntity
 
         return result;
     }
+
+    public Thing Update(string? description,Text? name, URL? url, Image? image)
+    {
+        if(description != null && Description != description )  Description = description;
+        if(name != null && Name != name) Name = name;
+        if(url != null && Url != url )  Url = url;
+        if(image != null && Image != image )  Image = image;
+
+        return this;
+    }
+
+    public Thing Delete(Guid id)
+    {
+        return this;
+    }
 }
 
 

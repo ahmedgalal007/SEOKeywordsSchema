@@ -9,6 +9,8 @@ public abstract class ValueObjectWithId : ValueObject, IEquatable<ValueObjectWit
         return base.Equals(obj);
     }
 
+    public virtual T Update<T>(T valueObject) where T : class { return valueObject; }
+
     public bool Equals(ValueObjectWithId? other)
     {
         if (base.Equals(other)) return true;

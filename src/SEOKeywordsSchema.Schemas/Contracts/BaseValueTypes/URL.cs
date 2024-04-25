@@ -1,13 +1,19 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using SEOKeywordsSchema.Schemas.Contracts.BaseValueTypes.ValueObjects;
+using SEOKeywordsSchema.Schemas.Contracts.BaseValueTypes.ValueObjects.Interfaces;
 
 namespace SEOKeywordsSchema.Schemas.Contracts.BaseValueTypes;
 [EntityTypeConfiguration(typeof(PropertyTypeConfigurationBase<URL>))]
-public class URL : ValueObjectWithId, IEquatable<URL>, IEquatable<Text>, IEquatable<string>
+public class URL :  ValueObject,
+                    IValuesMember<URL>,
+                    IEquatable<URL>, IEquatable<Text>, IEquatable<string>
 {
     public URL() { }
     public URL(string value) { Value = new Uri(value); }
+
     public Uri Value { get; set; }
+    public DefaultIdType Id { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+
     protected override IEnumerable<object> GetEqualityComponents()
     {
         yield return Value;
@@ -38,6 +44,16 @@ public class URL : ValueObjectWithId, IEquatable<URL>, IEquatable<Text>, IEquata
         if (base.Equals(other)) return true;
         if (string.Equals(Value.AbsoluteUri, other?.Value)) return true;
         return false;
+    }
+
+    public URL Update(URL value)
+    {
+        throw new NotImplementedException();
+    }
+
+    public URL Delete(DefaultIdType id)
+    {
+        throw new NotImplementedException();
     }
 
     public static implicit operator URL(string value)

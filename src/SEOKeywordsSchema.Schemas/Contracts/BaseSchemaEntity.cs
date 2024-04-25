@@ -5,8 +5,8 @@ namespace SEOKeywordsSchema.Schemas.Contracts;
 
 public abstract class BaseSchemaEntity : BaseEntity<DefaultIdType>
 {
-    protected BaseSchemaEntity() => Id = NewId.Next().ToGuid();
+    //protected BaseSchemaEntity() => Id = NewId.Next().ToGuid();
 
-    // public virtual string SchemaNameSpace() => GetType().Namespace
-    //                                                .TrimStart((Assembly.GetExecutingAssembly().GetName().Name! + ".").ToCharArray());
+    public virtual string SchemaNameSpace() => GetType().Namespace
+                                                    .TrimStart((Assembly.GetExecutingAssembly().GetName().Name! + ".").ToCharArray());
 }

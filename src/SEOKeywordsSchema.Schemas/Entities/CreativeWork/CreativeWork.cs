@@ -1,6 +1,7 @@
 ﻿
 using Microsoft.EntityFrameworkCore;
 using Microsoft.VisualBasic;
+using SEOKeywordsSchema.Schemas.Contracts.BaseValueTypes.ValueObjects.Interfaces;
 using SEOKeywordsSchema.Schemas.Contracts.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -11,12 +12,24 @@ using System.Threading.Tasks;
 
 namespace SEOKeywordsSchema.Schemas.Entities;
 [EntityTypeConfiguration(typeof(EntityTypeConfigurationBase<CreativeWork>))]
-public class CreativeWork : BaseSchemaEntity, ISchemaEntity
+public class CreativeWork : BaseSchemaEntity, ISchemaEntity, IValuesMember<CreativeWork>
 {
     public virtual string TypeName { get; protected set; } = nameof(CreativeWork);
     public String SchemaType { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
     public Thing? Parent { get; set; }
+    DefaultIdType IValuesMember<DefaultIdType, CreativeWork>.Id { get; set; }
+
+    public CreativeWork Delete(DefaultIdType id)
+    {
+        throw new NotImplementedException();
+    }
+
     public Boolean IsLeafe()
+    {
+        throw new NotImplementedException();
+    }
+
+    public CreativeWork Update(CreativeWork value)
     {
         throw new NotImplementedException();
     }

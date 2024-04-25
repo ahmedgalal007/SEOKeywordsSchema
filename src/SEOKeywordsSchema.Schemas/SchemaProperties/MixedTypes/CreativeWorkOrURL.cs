@@ -23,6 +23,7 @@ public class SubjectOf : CreativeWorkOrURL
     protected SubjectOf() { }
     public SubjectOf(CreativeWork value1) : base(value1) { }
 }
+
 [EntityTypeConfiguration(typeof(PropertyTypeConfigurationBase<MainEntityOfPage>))]
 public class MainEntityOfPage : CreativeWorkOrURL {
     protected MainEntityOfPage() { }

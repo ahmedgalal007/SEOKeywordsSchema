@@ -55,5 +55,24 @@ namespace SEOKeywordsSchema.Schemas.test.Entities
             Assert.IsNotNull(result);
             this.mockRepository.VerifyAll();
         }
+
+        [TestMethod]
+        public async Task Thing_UpdateThingNameWithStringToDatabase_ReturnNameEqualsNewName()
+        {
+            // Arrange
+            Thing? thing = this.CreateThing();
+            thing = repo.Save(thing);
+            Thing? result = await repo.GetById(thing.Id);
+
+
+            // Act
+            result?.Update(null,"Ahmed Galal 2024",null,null);
+            repo.Save(result);
+
+            thing = await repo.GetById(result.Id);
+            // Assert
+            Assert.Equals(thing.Name, "Ahmed Galal 2024");
+            this.mockRepository.VerifyAll();
+        }
     }
 }

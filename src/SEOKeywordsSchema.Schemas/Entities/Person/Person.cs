@@ -1,7 +1,8 @@
-﻿using SEOKeywordsSchema.Schemas.SchemaProperties;
+﻿using SEOKeywordsSchema.Schemas.Contracts.BaseValueTypes.ValueObjects.Interfaces;
+using SEOKeywordsSchema.Schemas.SchemaProperties;
 
 namespace SEOKeywordsSchema.Schemas.Entities;
-public class Person : Thing, IPersonProperty
+public class Person : Thing, IPersonProperty, IValuesMember<Person>
 {
     public override string TypeName { get; protected set; } = nameof(Person);
     public string AdditionalName { get; set; }
@@ -13,5 +14,15 @@ public class Person : Thing, IPersonProperty
     public string FaxNumber { get; set; }
     public Place BirthPlace { get; set; }
     public Person Follows { get; set; }
+    DefaultIdType IValuesMember<DefaultIdType, Person>.Id { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
+    public Person Delete(DefaultIdType id)
+    {
+        throw new NotImplementedException();
+    }
+
+    public Person Update(Person value)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Host.Migrations.Application
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240424124537_schemavalues")]
+    [Migration("20240424181537_schemavalues")]
     partial class schemavalues
     {
         /// <inheritdoc />
