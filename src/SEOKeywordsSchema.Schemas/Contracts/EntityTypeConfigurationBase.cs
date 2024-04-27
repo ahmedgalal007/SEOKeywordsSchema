@@ -9,7 +9,7 @@ public class EntityTypeConfigurationBase<TEntity>: IEntityTypeConfiguration<TEnt
 {
     public void Configure(EntityTypeBuilder<TEntity> builder)
     {
-        builder.ToTable(typeof(TEntity).Name, "Schema.Entities");
+        builder.ToTable(typeof(TEntity).Name, typeof(TEntity).Namespace.Replace("SEOKeywordsSchema.Schemas.", ""));
     }
 }
 
@@ -18,7 +18,7 @@ public class TypeConfigurationBase<TEntity> : IEntityTypeConfiguration<TEntity>
 {
     public void Configure(EntityTypeBuilder<TEntity> builder)
     {
-        builder.ToTable(typeof(TEntity).Name, "Schema.Types");
+        builder.ToTable(typeof(TEntity).Name, typeof(TEntity).Namespace.Replace("SEOKeywordsSchema.Schemas.", ""));
     }
 }
 

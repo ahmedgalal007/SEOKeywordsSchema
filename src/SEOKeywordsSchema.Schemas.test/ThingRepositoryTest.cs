@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using SEOKeywordsSchema.Schemas.Schema.Org.Entities;
 using SEOKeywordsSchema.Schemas.Schema.Org.Properties.Thing;
 using SEOKeywordsSchema.Schemas.Schema.Org.Types;
-using SEOKeywordsSchema.Schemas.Schema.Org.Entities.Action.AssessAction.ReactAction.LikeAction;
+using SEOKeywordsSchema.Schemas.Schema.Org.Entities.Actions.AssessAction.ReactAction.LikeAction;
 using SEOKeywordsSchema.Schemas.Schema.Org.Entities.CreativeWork;
 
 

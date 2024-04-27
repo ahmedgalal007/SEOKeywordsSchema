@@ -2,6 +2,7 @@
 using SEOKeywordsSchema.Schemas.Contracts.Interfaces;
 using SEOKeywordsSchema.Schemas.Schema.Org.Properties.Thing;
 using SEOKeywordsSchema.Schemas.Schema.Org.Types;
+using Action = SEOKeywordsSchema.Schemas.Schema.Org.Entities.Actions.Action;
 
 namespace SEOKeywordsSchema.Schemas.Schema.Org.Entities;
 [EntityTypeConfiguration(typeof(EntityTypeConfigurationBase<Thing>))]
@@ -26,7 +27,7 @@ public class Thing : BaseSchemaEntity, ISchemaEntity
     public URL? Url { get; private set; }
     #endregion
 
-    public Thing? Parent { get; set; }
+    public Thing? Parent { get; set; } = null;
 
 
     #region Actions

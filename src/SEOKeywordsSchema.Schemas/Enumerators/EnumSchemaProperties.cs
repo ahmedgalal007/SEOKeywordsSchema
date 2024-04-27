@@ -1,6 +1,6 @@
 ﻿using SEOKeywordsSchema.Schemas.Schema.Org.Entities;
-using SEOKeywordsSchema.Schemas.Schema.Org.Entities.Action.AssessAction.ChooseAction;
-using SEOKeywordsSchema.Schemas.Schema.Org.Entities.Action.InteractAction.CommunicateAction;
+using SEOKeywordsSchema.Schemas.Schema.Org.Entities.Actions.AssessAction.ChooseAction;
+using SEOKeywordsSchema.Schemas.Schema.Org.Entities.Actions.InteractAction.CommunicateAction;
 using SEOKeywordsSchema.Schemas.Schema.Org.Entities.CreativeWork;
 using SEOKeywordsSchema.Schemas.Schema.Org.Entities.CreativeWork.Certification;
 using SEOKeywordsSchema.Schemas.Schema.Org.Entities.CreativeWork.CreativeWorkSeries.VideoGameSeries;

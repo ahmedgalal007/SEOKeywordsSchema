@@ -3,7 +3,7 @@
 using Moq;
 using SEOKeywordsSchema.Schemas.Persistence.Contexts;
 using SEOKeywordsSchema.Schemas.test.Repositories;
-using Action = SEOKeywordsSchema.Schemas.Schema.Org.Entities.Action.Action;
+using Action = SEOKeywordsSchema.Schemas.Schema.Org.Entities.Actions.Action;
 using SEOKeywordsSchema.Schemas.Schema.Org.Properties.Thing;
 using SEOKeywordsSchema.Schemas.Schema.Org.Entities;
 using SEOKeywordsSchema.Schemas.Schema.Org.Types;

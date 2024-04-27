@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using SEOKeywordsSchema.Schemas.Contracts.Interfaces;
-using Action = SEOKeywordsSchema.Schemas.Schema.Org.Entities.Action.Action;
+using Action = SEOKeywordsSchema.Schemas.Schema.Org.Entities.Actions.Action;
 
 namespace SEOKeywordsSchema.Schemas.Schema.Org.Properties.Thing;
 
