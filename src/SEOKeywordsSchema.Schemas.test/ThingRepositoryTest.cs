@@ -2,11 +2,12 @@ using Moq;
 using Bogus;
 using Host.Persistence.Contexts;
 using FluentAssertions;
-using SEOKeywordsSchema.Schemas.SchemaEntities;
 using Microsoft.EntityFrameworkCore;
-using SEOKeywordsSchema.Schemas.SchemaProperties.Things.Properties;
-using SEOKeywordsSchema.Schemas.Types;
-using SEOKeywordsSchema.Schemas.SchemaEntities.Actions.AssessActions.ReactActions;
+using SEOKeywordsSchema.Schemas.Schema.Org.Entities;
+using SEOKeywordsSchema.Schemas.Schema.Org.Properties.Thing;
+using SEOKeywordsSchema.Schemas.Schema.Org.Types;
+using SEOKeywordsSchema.Schemas.Schema.Org.Entities.Action.AssessAction.ReactAction.LikeAction;
+using SEOKeywordsSchema.Schemas.Schema.Org.Entities.CreativeWork;
 
 
 namespace SEOKeywordsSchema.Schemas.test;

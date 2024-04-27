@@ -1,4 +1,4 @@
-﻿using SEOKeywordsSchema.Schemas.SchemaEntities;
+﻿using SEOKeywordsSchema.Schemas.Schema.Org.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;

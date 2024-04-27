@@ -4,7 +4,7 @@
     <TargetFramework>net7.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <AppDesignerFolder>SchemaProperties</AppDesignerFolder>
+    <AppDesignerFolder>Schema.Org</AppDesignerFolder>
   </PropertyGroup>
 
   <ItemGroup>
@@ -16,6 +16,7 @@
 
   <ItemGroup>
     <Folder Include="Repositories\" />
+    <Folder Include="SchemaEntities\" />
   </ItemGroup>
 
 </Project>

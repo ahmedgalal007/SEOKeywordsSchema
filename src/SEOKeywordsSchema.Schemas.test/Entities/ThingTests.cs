@@ -3,11 +3,11 @@
 using Moq;
 using SEOKeywordsSchema.Schemas.Persistence.Contexts;
 using SEOKeywordsSchema.Schemas.test.Repositories;
-using SEOKeywordsSchema.Schemas.SchemaEntities;
-using SEOKeywordsSchema.Schemas.SchemaProperties.Things.Properties;
-using SEOKeywordsSchema.Schemas.Types;
-using SEOKeywordsSchema.Schemas.Types.MixedTypes;
-using Action = SEOKeywordsSchema.Schemas.SchemaEntities.Action;
+using Action = SEOKeywordsSchema.Schemas.Schema.Org.Entities.Action.Action;
+using SEOKeywordsSchema.Schemas.Schema.Org.Properties.Thing;
+using SEOKeywordsSchema.Schemas.Schema.Org.Entities;
+using SEOKeywordsSchema.Schemas.Schema.Org.Types;
+using SEOKeywordsSchema.Schemas.Schema.Org.Types.MixedTypes;
 
 namespace SEOKeywordsSchema.Schemas.test.Entities
 {

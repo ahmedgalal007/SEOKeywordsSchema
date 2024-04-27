@@ -2,8 +2,8 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using SEOKeywordsSchema.Schemas.Persistence.Contexts;
-using SEOKeywordsSchema.Schemas.Types;
-using SEOKeywordsSchema.Schemas.Types.MixedTypes;
+using SEOKeywordsSchema.Schemas.Schema.Org.Types;
+using SEOKeywordsSchema.Schemas.Schema.Org.Types.MixedTypes;
 using System;
 
 namespace SEOKeywordsSchema.Schemas.test.SchemaProperties.BaseMixedTypes

@@ -1,10 +1,7 @@
 ﻿using Bogus;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
-using SEOKeywordsSchema.Schemas.Contracts.BaseValueTypes;
-using SEOKeywordsSchema.Schemas.SchemaEntities;
-using SEOKeywordsSchema.Schemas.SchemaProperties.Things.Properties;
-using SEOKeywordsSchema.Schemas.Types;
+using SEOKeywordsSchema.Schemas.Schema.Org.Properties.Thing;
+using SEOKeywordsSchema.Schemas.Schema.Org.Types;
 
 namespace SEOKeywordsSchema.Schemas.test.SchemaProperties.Things.Properties
 {

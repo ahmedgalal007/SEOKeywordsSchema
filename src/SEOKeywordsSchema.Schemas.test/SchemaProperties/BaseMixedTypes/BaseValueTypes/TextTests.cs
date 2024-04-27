@@ -1,6 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
-using SEOKeywordsSchema.Schemas.Types;
+using SEOKeywordsSchema.Schemas.Schema.Org.Types;
 using System;
 
 namespace SEOKeywordsSchema.Schemas.test.SchemaProperties.BaseMixedTypes.BaseValueTypes

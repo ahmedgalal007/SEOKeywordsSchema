@@ -1,5 +1,5 @@
-﻿using SEOKeywordsSchema.Schemas.SchemaEntities;
-using SEOKeywordsSchema.Schemas.Persistence.Contexts;
+﻿using SEOKeywordsSchema.Schemas.Persistence.Contexts;
+using SEOKeywordsSchema.Schemas.Schema.Org.Entities;
 
 namespace SEOKeywordsSchema.Schemas.test.Repositories;
 public class ThingRepository

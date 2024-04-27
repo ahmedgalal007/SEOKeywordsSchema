@@ -1,9 +1,12 @@
-﻿using SEOKeywordsSchema.Schemas.SchemaEntities;
-using SEOKeywordsSchema.Schemas.SchemaEntities.Actions.AssessActions;
-using SEOKeywordsSchema.Schemas.SchemaEntities.Actions.InteractActions;
-using SEOKeywordsSchema.Schemas.SchemaEntities.CreativeWorks;
-using SEOKeywordsSchema.Schemas.SchemaEntities.CreativeWorks.CreativeWorkSerieses;
-using SEOKeywordsSchema.Schemas.Types;
+﻿using SEOKeywordsSchema.Schemas.Schema.Org.Entities;
+using SEOKeywordsSchema.Schemas.Schema.Org.Entities.Action.AssessAction.ChooseAction;
+using SEOKeywordsSchema.Schemas.Schema.Org.Entities.Action.InteractAction.CommunicateAction;
+using SEOKeywordsSchema.Schemas.Schema.Org.Entities.CreativeWork;
+using SEOKeywordsSchema.Schemas.Schema.Org.Entities.CreativeWork.Certification;
+using SEOKeywordsSchema.Schemas.Schema.Org.Entities.CreativeWork.CreativeWorkSeries.VideoGameSeries;
+using SEOKeywordsSchema.Schemas.Schema.Org.Entities.CreativeWork.Game;
+using SEOKeywordsSchema.Schemas.Schema.Org.Entities.Event;
+using SEOKeywordsSchema.Schemas.Schema.Org.Types;
 
 namespace SEOKeywordsSchema.Schemas.Enumerators;
 public abstract partial class EnumSchemaProperties : Enumeration<EnumSchemaProperties>
