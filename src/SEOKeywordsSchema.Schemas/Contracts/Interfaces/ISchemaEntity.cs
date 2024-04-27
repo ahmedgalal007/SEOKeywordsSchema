@@ -1,4 +1,4 @@
-﻿using SEOKeywordsSchema.Schemas.Entities;
+﻿using SEOKeywordsSchema.Schemas.SchemaEntities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +8,8 @@ using System.Threading.Tasks;
 namespace SEOKeywordsSchema.Schemas.Contracts.Interfaces;
 public interface ISchemaEntity
 {
-    public string SchemaType { get; set; }
+    public static string SchemaType { get; set; }
+
     public virtual BaseSchemaEntity? Parent { get { return null; } set { } }
     // protected bool IsLeafe { get; set; }
     public virtual bool IsLeafe() { return false; }

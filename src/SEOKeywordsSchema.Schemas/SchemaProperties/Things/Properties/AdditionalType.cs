@@ -1,12 +1,15 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using SEOKeywordsSchema.Schemas.Contracts.BaseValueTypes;
+using SEOKeywordsSchema.Schemas.Contracts.Interfaces;
+using SEOKeywordsSchema.Schemas.Types;
+using SEOKeywordsSchema.Schemas.Types.MixedTypes;
 
 namespace SEOKeywordsSchema.Schemas.SchemaProperties.Things.Properties;
 
 [EntityTypeConfiguration(typeof(PropertyTypeConfigurationBase<AdditionalType>))]
-public class AdditionalType : TextOrURL
+public class AdditionalType : TextOrURL, ISchemaProperty<AdditionalType>
 {
     protected AdditionalType() { }
+    public AdditionalType(string value1) : base(new Text(value1)) { }
     public AdditionalType(Text value1) : base(value1) { }
     public AdditionalType(URL value2) : base(value2) { }
 

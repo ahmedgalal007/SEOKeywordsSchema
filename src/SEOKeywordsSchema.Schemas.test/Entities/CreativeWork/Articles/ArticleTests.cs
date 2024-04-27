@@ -1,6 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
-using SEOKeywordsSchema.Schemas.Entities.CreativeWorks;
+using SEOKeywordsSchema.Schemas.SchemaEntities.CreativeWorks;
 
 namespace SEOKeywordsSchema.Schemas.test.Entities.CreativeWork.Articles
 {

@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.ComponentModel.DataAnnotations.Schema;
 using SEOKeywordsSchema.Schemas.Contracts.BaseValueTypes.ValueObjects;
 using SEOKeywordsSchema.Schemas.Contracts.BaseValueTypes.ValueObjects.Interfaces;
 using SEOKeywordsSchema.Schemas.Extensions;
@@ -80,6 +81,7 @@ public abstract class TwoValues<T1, T2> : ValueObject, IValuesProperty<TwoValues
     public List<T2> Value2 { get; set; }
 
     public int Count => GetCount();
+
     private int GetCount()
     {
         return HasValue1 ? Value1?.Count ?? 0 : HasValue2 ? Value2?.Count ?? 0 : 0;
@@ -103,8 +105,8 @@ public abstract class TwoValues<T1, T2> : ValueObject, IValuesProperty<TwoValues
     {
 
         // Type type = val.HasValue1 ? val.Value1.GetType() : val.Value2.GetType();
-        if (HasValue1) Value2.Clear();
-        if (HasValue2) Value1.Clear();
+        if (HasValue1 && Value2 is not null) Value2.Clear();
+        if (HasValue2 && Value1 is not null) Value1.Clear();
     }
 
     public bool Equals(TwoValues<T1, T2>? other)
@@ -169,6 +171,10 @@ public abstract class TwoValues<T1, T2> : ValueObject, IValuesProperty<TwoValues
     {
         throw new NotImplementedException();
     }
+
+
+    static String IValuesProperty<DefaultIdType, TwoValues<T1, T2>>.Help() =>
+        @"";
 }
 
 

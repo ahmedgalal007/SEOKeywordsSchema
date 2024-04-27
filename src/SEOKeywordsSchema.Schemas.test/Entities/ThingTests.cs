@@ -1,12 +1,13 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+// using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
-using SEOKeywordsSchema.Schemas.Contracts.BaseValueTypes;
 using SEOKeywordsSchema.Schemas.Persistence.Contexts;
-using SEOKeywordsSchema.Schemas.SchemaProperties;
-using SEOKeywordsSchema.Schemas.SchemaProperties.BaseMixedTypes;
 using SEOKeywordsSchema.Schemas.test.Repositories;
-using SEOKeywordsSchema.Schemas.Entities;
+using SEOKeywordsSchema.Schemas.SchemaEntities;
+using SEOKeywordsSchema.Schemas.SchemaProperties.Things.Properties;
+using SEOKeywordsSchema.Schemas.Types;
+using SEOKeywordsSchema.Schemas.Types.MixedTypes;
+using Action = SEOKeywordsSchema.Schemas.SchemaEntities.Action;
 
 namespace SEOKeywordsSchema.Schemas.test.Entities
 {
@@ -35,11 +36,14 @@ namespace SEOKeywordsSchema.Schemas.test.Entities
 
         private Thing CreateThing()
         {
-            Text name = new Text("My First Thing");
-            TextOrURL txtOrUrl = new TextOrURL(name);
+            Identifier identifier = new Identifier("Test Schema");
+            Description description = "Test Description";
+            Name name = new Name("My First Thing");
+            TextOrURL txtOrUrl = new TextOrURL(name.First());
             URL url = new URL("http://microsoft.com");
             Image img = new Image(url);
-            return Thing.Create("Test Schema", "Test Description", name, url.GetCleanUri(), img);
+            PotentialAction potentialAction = new PotentialAction( new Action());
+            return Thing.Create(identifier, description, name, url.GetCleanUri(), img, potentialAction);
         }
 
         [TestMethod]
@@ -49,6 +53,7 @@ namespace SEOKeywordsSchema.Schemas.test.Entities
             var thing = this.CreateThing();
 
             // Act
+            // thing = await repo.SaveAsync(thing);
             thing = repo.Save(thing);
             var result = await repo.GetById(thing.Id);
             // Assert
@@ -61,17 +66,36 @@ namespace SEOKeywordsSchema.Schemas.test.Entities
         {
             // Arrange
             Thing? thing = this.CreateThing();
-            thing = repo.Save(thing);
+            thing = await repo.SaveAsync(thing);
             Thing? result = await repo.GetById(thing.Id);
 
 
             // Act
-            result?.Update(null,"Ahmed Galal 2024",null,null);
-            repo.Save(result);
+            result?.Update(null, "Ahmed Galal 2024",null,null);
+            await repo.UpdateAsync(result);
 
             thing = await repo.GetById(result.Id);
             // Assert
-            Assert.Equals(thing.Name, "Ahmed Galal 2024");
+            Assert.IsTrue(thing?.Name?.First()?.Value?.Equals("Ahmed Galal 2024") ?? false);
+            this.mockRepository.VerifyAll();
+        }
+
+        [TestMethod]
+        public async Task Thing_UpdateThingDescriptionWithStringToDatabase_ReturnNameEqualsNewName()
+        {
+            // Arrange
+            Thing? thing = this.CreateThing();
+            thing = await repo.SaveAsync(thing);
+            Thing? result = await repo.GetById(thing.Id);
+
+
+            // Act
+            result?.Update("Description of the first thing in schema", null, null, null);
+            await repo.UpdateAsync(result);
+
+            thing = await repo.GetById(result.Id);
+            // Assert
+            Assert.IsTrue(thing?.Description?.Value1?.First()?.Value.Equals("Description of the first thing in schema") ?? false);
             this.mockRepository.VerifyAll();
         }
     }

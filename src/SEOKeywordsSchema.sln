@@ -12,7 +12,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution", "Solution", "{76
 		ReadMe.MD = ReadMe.MD
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SEOKeywordsSchema.Schemas.test", "SEOKeywordsSchema.Schemas.test\SEOKeywordsSchema.Schemas.test.csproj", "{8A1B9AC9-C62E-4C09-90C9-F8ADB636ABE9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SEOKeywordsSchema.Schemas.test", "SEOKeywordsSchema.Schemas.test\SEOKeywordsSchema.Schemas.test.csproj", "{8A1B9AC9-C62E-4C09-90C9-F8ADB636ABE9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

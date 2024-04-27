@@ -1,5 +1,6 @@
-﻿using SEOKeywordsSchema.Schemas.Contracts.BaseValueTypes;
-using SEOKeywordsSchema.Schemas.SchemaProperties;
+﻿
+using SEOKeywordsSchema.Schemas.Types;
+using SEOKeywordsSchema.Schemas.Types.MixedTypes;
 
 namespace SEOKeywordsSchema.Schemas.test.SchemaProperties.BaseMixedTypes.ValueObjects.Contracts;
 [TestClass]

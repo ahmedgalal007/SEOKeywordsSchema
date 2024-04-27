@@ -31,6 +31,9 @@ namespace Host.Migrations.Application
                     b.Property<Guid?>("AdditionalTypeId")
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<Guid?>("DescriptionId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<string>("Value")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -39,7 +42,11 @@ namespace Host.Migrations.Application
 
                     b.HasIndex("AdditionalTypeId");
 
+                    b.HasIndex("DescriptionId");
+
                     b.ToTable("Text", "Schema.Property");
+
+                    b.UseTptMappingStrategy();
                 });
 
             modelBuilder.Entity("SEOKeywordsSchema.Schemas.Contracts.BaseValueTypes.URL", b =>
@@ -77,7 +84,7 @@ namespace Host.Migrations.Application
                     b.ToTable("URL", "Schema.Property");
                 });
 
-            modelBuilder.Entity("SEOKeywordsSchema.Schemas.Entities.CreativeWork", b =>
+            modelBuilder.Entity("SEOKeywordsSchema.Schemas.SchemaEntities.CreativeWork", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -111,7 +118,7 @@ namespace Host.Migrations.Application
                     b.ToTable("CreativeWork", "Schema");
                 });
 
-            modelBuilder.Entity("SEOKeywordsSchema.Schemas.Entities.CreativeWorks.Article", b =>
+            modelBuilder.Entity("SEOKeywordsSchema.Schemas.SchemaEntities.CreativeWorks.Article", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -135,7 +142,7 @@ namespace Host.Migrations.Application
                     b.ToTable("Article", "Schema");
                 });
 
-            modelBuilder.Entity("SEOKeywordsSchema.Schemas.Entities.CreativeWorks.MediaObject", b =>
+            modelBuilder.Entity("SEOKeywordsSchema.Schemas.SchemaEntities.CreativeWorks.MediaObject", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -153,9 +160,11 @@ namespace Host.Migrations.Application
                     b.HasIndex("ParentId");
 
                     b.ToTable("MediaObject", "Schema");
+
+                    b.UseTptMappingStrategy();
                 });
 
-            modelBuilder.Entity("SEOKeywordsSchema.Schemas.Entities.CreativeWorks.MediaObjects.ImageObject", b =>
+            modelBuilder.Entity("SEOKeywordsSchema.Schemas.SchemaEntities.CreativeWorks.MediaObjects.ImageObject", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -180,7 +189,7 @@ namespace Host.Migrations.Application
                     b.ToTable("ImageObject", "Schema");
                 });
 
-            modelBuilder.Entity("SEOKeywordsSchema.Schemas.Entities.Thing", b =>
+            modelBuilder.Entity("SEOKeywordsSchema.Schemas.SchemaEntities.Thing", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -189,14 +198,17 @@ namespace Host.Migrations.Application
                     b.Property<Guid?>("AdditionalTypeId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<Guid?>("AlternateNameId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid?>("DescriptionId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<Guid?>("DisambiguatingDescriptionId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("Identifier")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<Guid?>("IdentifierId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<Guid?>("ImageId")
                         .HasColumnType("uniqueidentifier");
@@ -210,15 +222,11 @@ namespace Host.Migrations.Application
                     b.Property<Guid?>("ParentId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("PotentialAction")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<Guid?>("PotentialActionId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<Guid?>("SameAsId")
                         .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("SchemaType")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<Guid?>("SubjectOfId")
                         .HasColumnType("uniqueidentifier");
@@ -233,7 +241,13 @@ namespace Host.Migrations.Application
 
                     b.HasIndex("AdditionalTypeId");
 
+                    b.HasIndex("AlternateNameId");
+
+                    b.HasIndex("DescriptionId");
+
                     b.HasIndex("DisambiguatingDescriptionId");
+
+                    b.HasIndex("IdentifierId");
 
                     b.HasIndex("ImageId");
 
@@ -242,6 +256,8 @@ namespace Host.Migrations.Application
                     b.HasIndex("NameId");
 
                     b.HasIndex("ParentId");
+
+                    b.HasIndex("PotentialActionId");
 
                     b.HasIndex("SameAsId");
 
@@ -332,11 +348,72 @@ namespace Host.Migrations.Application
                     b.ToTable("AdditionalType", "Schema.Property");
                 });
 
+            modelBuilder.Entity("SEOKeywordsSchema.Schemas.SchemaProperties.Things.Properties.Description", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<bool>("HasValue1")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("HasValue2")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsSingle")
+                        .HasColumnType("bit");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Description", "Schema.Property");
+                });
+
+            modelBuilder.Entity("SEOKeywordsSchema.Schemas.SchemaProperties.Things.Properties.PotentialAction", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("PotentialAction", "Schema.Property");
+                });
+
+            modelBuilder.Entity("SEOKeywordsSchema.Schemas.SchemaProperties.Things.Properties.AlternateName", b =>
+                {
+                    b.HasBaseType("SEOKeywordsSchema.Schemas.Contracts.BaseValueTypes.Text");
+
+                    b.ToTable("AlternateName", "Schema.Property");
+                });
+
+            modelBuilder.Entity("SEOKeywordsSchema.Schemas.SchemaProperties.Things.Properties.Identifier", b =>
+                {
+                    b.HasBaseType("SEOKeywordsSchema.Schemas.Contracts.BaseValueTypes.Text");
+
+                    b.ToTable("Identifier", "Schema.Property");
+                });
+
+            modelBuilder.Entity("SEOKeywordsSchema.Schemas.SchemaEntities.CreativeWorks.MediaObjects.TextObject", b =>
+                {
+                    b.HasBaseType("SEOKeywordsSchema.Schemas.SchemaEntities.CreativeWorks.MediaObject");
+
+                    b.Property<Guid?>("DescriptionId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasIndex("DescriptionId");
+
+                    b.ToTable("TextObject", "Schema.Property");
+                });
+
             modelBuilder.Entity("SEOKeywordsSchema.Schemas.Contracts.BaseValueTypes.Text", b =>
                 {
                     b.HasOne("SEOKeywordsSchema.Schemas.SchemaProperties.Things.Properties.AdditionalType", null)
                         .WithMany("Value1")
                         .HasForeignKey("AdditionalTypeId");
+
+                    b.HasOne("SEOKeywordsSchema.Schemas.SchemaProperties.Things.Properties.Description", null)
+                        .WithMany("Value1")
+                        .HasForeignKey("DescriptionId");
                 });
 
             modelBuilder.Entity("SEOKeywordsSchema.Schemas.Contracts.BaseValueTypes.URL", b =>
@@ -358,13 +435,13 @@ namespace Host.Migrations.Application
                         .HasForeignKey("SubjectOfId");
                 });
 
-            modelBuilder.Entity("SEOKeywordsSchema.Schemas.Entities.CreativeWork", b =>
+            modelBuilder.Entity("SEOKeywordsSchema.Schemas.SchemaEntities.CreativeWork", b =>
                 {
                     b.HasOne("SEOKeywordsSchema.Schemas.SchemaProperties.BaseMixedTypes.MainEntityOfPage", null)
                         .WithMany("Value1")
                         .HasForeignKey("MainEntityOfPageId");
 
-                    b.HasOne("SEOKeywordsSchema.Schemas.Entities.Thing", "Parent")
+                    b.HasOne("SEOKeywordsSchema.Schemas.SchemaEntities.Thing", "Parent")
                         .WithMany()
                         .HasForeignKey("ParentId");
 
@@ -375,9 +452,9 @@ namespace Host.Migrations.Application
                     b.Navigation("Parent");
                 });
 
-            modelBuilder.Entity("SEOKeywordsSchema.Schemas.Entities.CreativeWorks.Article", b =>
+            modelBuilder.Entity("SEOKeywordsSchema.Schemas.SchemaEntities.CreativeWorks.Article", b =>
                 {
-                    b.HasOne("SEOKeywordsSchema.Schemas.Entities.CreativeWork", "Parent")
+                    b.HasOne("SEOKeywordsSchema.Schemas.SchemaEntities.CreativeWork", "Parent")
                         .WithMany()
                         .HasForeignKey("ParentId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -386,9 +463,9 @@ namespace Host.Migrations.Application
                     b.Navigation("Parent");
                 });
 
-            modelBuilder.Entity("SEOKeywordsSchema.Schemas.Entities.CreativeWorks.MediaObject", b =>
+            modelBuilder.Entity("SEOKeywordsSchema.Schemas.SchemaEntities.CreativeWorks.MediaObject", b =>
                 {
-                    b.HasOne("SEOKeywordsSchema.Schemas.Entities.CreativeWork", "Parent")
+                    b.HasOne("SEOKeywordsSchema.Schemas.SchemaEntities.CreativeWork", "Parent")
                         .WithMany()
                         .HasForeignKey("ParentId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -397,13 +474,13 @@ namespace Host.Migrations.Application
                     b.Navigation("Parent");
                 });
 
-            modelBuilder.Entity("SEOKeywordsSchema.Schemas.Entities.CreativeWorks.MediaObjects.ImageObject", b =>
+            modelBuilder.Entity("SEOKeywordsSchema.Schemas.SchemaEntities.CreativeWorks.MediaObjects.ImageObject", b =>
                 {
                     b.HasOne("SEOKeywordsSchema.Schemas.SchemaProperties.BaseMixedTypes.Image", null)
                         .WithMany("Value1")
                         .HasForeignKey("ImageId");
 
-                    b.HasOne("SEOKeywordsSchema.Schemas.Entities.CreativeWorks.MediaObject", "Parent")
+                    b.HasOne("SEOKeywordsSchema.Schemas.SchemaEntities.CreativeWorks.MediaObject", "Parent")
                         .WithMany()
                         .HasForeignKey("ParentId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -412,15 +489,27 @@ namespace Host.Migrations.Application
                     b.Navigation("Parent");
                 });
 
-            modelBuilder.Entity("SEOKeywordsSchema.Schemas.Entities.Thing", b =>
+            modelBuilder.Entity("SEOKeywordsSchema.Schemas.SchemaEntities.Thing", b =>
                 {
                     b.HasOne("SEOKeywordsSchema.Schemas.SchemaProperties.Things.Properties.AdditionalType", "AdditionalType")
                         .WithMany()
                         .HasForeignKey("AdditionalTypeId");
 
+                    b.HasOne("SEOKeywordsSchema.Schemas.SchemaProperties.Things.Properties.AlternateName", "AlternateName")
+                        .WithMany()
+                        .HasForeignKey("AlternateNameId");
+
+                    b.HasOne("SEOKeywordsSchema.Schemas.SchemaProperties.Things.Properties.Description", "Description")
+                        .WithMany()
+                        .HasForeignKey("DescriptionId");
+
                     b.HasOne("SEOKeywordsSchema.Schemas.Contracts.BaseValueTypes.Text", "DisambiguatingDescription")
                         .WithMany()
                         .HasForeignKey("DisambiguatingDescriptionId");
+
+                    b.HasOne("SEOKeywordsSchema.Schemas.SchemaProperties.Things.Properties.Identifier", "Identifier")
+                        .WithMany()
+                        .HasForeignKey("IdentifierId");
 
                     b.HasOne("SEOKeywordsSchema.Schemas.SchemaProperties.BaseMixedTypes.Image", "Image")
                         .WithMany()
@@ -434,9 +523,13 @@ namespace Host.Migrations.Application
                         .WithMany()
                         .HasForeignKey("NameId");
 
-                    b.HasOne("SEOKeywordsSchema.Schemas.Entities.Thing", "Parent")
+                    b.HasOne("SEOKeywordsSchema.Schemas.SchemaEntities.Thing", "Parent")
                         .WithMany()
                         .HasForeignKey("ParentId");
+
+                    b.HasOne("SEOKeywordsSchema.Schemas.SchemaProperties.Things.Properties.PotentialAction", "PotentialAction")
+                        .WithMany()
+                        .HasForeignKey("PotentialActionId");
 
                     b.HasOne("SEOKeywordsSchema.Schemas.Contracts.BaseValueTypes.URL", "SameAs")
                         .WithMany()
@@ -452,7 +545,13 @@ namespace Host.Migrations.Application
 
                     b.Navigation("AdditionalType");
 
+                    b.Navigation("AlternateName");
+
+                    b.Navigation("Description");
+
                     b.Navigation("DisambiguatingDescription");
+
+                    b.Navigation("Identifier");
 
                     b.Navigation("Image");
 
@@ -462,11 +561,44 @@ namespace Host.Migrations.Application
 
                     b.Navigation("Parent");
 
+                    b.Navigation("PotentialAction");
+
                     b.Navigation("SameAs");
 
                     b.Navigation("SubjectOf");
 
                     b.Navigation("Url");
+                });
+
+            modelBuilder.Entity("SEOKeywordsSchema.Schemas.SchemaProperties.Things.Properties.AlternateName", b =>
+                {
+                    b.HasOne("SEOKeywordsSchema.Schemas.Contracts.BaseValueTypes.Text", null)
+                        .WithOne()
+                        .HasForeignKey("SEOKeywordsSchema.Schemas.SchemaProperties.Things.Properties.AlternateName", "Id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("SEOKeywordsSchema.Schemas.SchemaProperties.Things.Properties.Identifier", b =>
+                {
+                    b.HasOne("SEOKeywordsSchema.Schemas.Contracts.BaseValueTypes.Text", null)
+                        .WithOne()
+                        .HasForeignKey("SEOKeywordsSchema.Schemas.SchemaProperties.Things.Properties.Identifier", "Id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("SEOKeywordsSchema.Schemas.SchemaEntities.CreativeWorks.MediaObjects.TextObject", b =>
+                {
+                    b.HasOne("SEOKeywordsSchema.Schemas.SchemaProperties.Things.Properties.Description", null)
+                        .WithMany("Value2")
+                        .HasForeignKey("DescriptionId");
+
+                    b.HasOne("SEOKeywordsSchema.Schemas.SchemaEntities.CreativeWorks.MediaObject", null)
+                        .WithOne()
+                        .HasForeignKey("SEOKeywordsSchema.Schemas.SchemaEntities.CreativeWorks.MediaObjects.TextObject", "Id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("SEOKeywordsSchema.Schemas.SchemaProperties.BaseMixedTypes.Image", b =>
@@ -491,6 +623,13 @@ namespace Host.Migrations.Application
                 });
 
             modelBuilder.Entity("SEOKeywordsSchema.Schemas.SchemaProperties.Things.Properties.AdditionalType", b =>
+                {
+                    b.Navigation("Value1");
+
+                    b.Navigation("Value2");
+                });
+
+            modelBuilder.Entity("SEOKeywordsSchema.Schemas.SchemaProperties.Things.Properties.Description", b =>
                 {
                     b.Navigation("Value1");
 

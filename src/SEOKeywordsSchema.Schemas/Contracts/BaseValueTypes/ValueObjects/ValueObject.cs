@@ -14,6 +14,7 @@ public abstract class ValueObject : IEquatable<ValueObject?>, IEquatable<Object?
             .Aggregate((x, y) => x ^ y);
     }
 
+   
     protected static bool EqualOperator(ValueObject left, ValueObject right)
     {
         if (ReferenceEquals(left, null) ^ ReferenceEquals(right, null))

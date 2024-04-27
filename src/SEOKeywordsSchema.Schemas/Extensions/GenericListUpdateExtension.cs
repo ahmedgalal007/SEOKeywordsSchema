@@ -32,14 +32,29 @@ public static class GenericListUpdateExtension
         });
 
         if (withRemove)
+        {
+            List<T> ToDeleteItems = new();
+
             oldList?.ForEach(oL =>
             {
                 // if old item Id not exisits in new item remove it
-                if (oL.Id != default && !newList.Any(nL => nL.Id.Equals(nL.Id)))
+                if (oL.Id != default && !newList.Any(nL => nL.Id.Equals(oL.Id)))
                 {
-                    oL.Delete(oL.Id);
-                    oldList.Remove(oL);
+                    // oL.Delete(oL.Id);
+                    ToDeleteItems.Add(oL);
                 }
             });
+
+            foreach (var item in ToDeleteItems)
+            {
+                if (item.Id != default && oldList.Any(oL => oL.Id.Equals(item.Id)))
+                {
+                    var del = oldList.First(e => e.Id == item.Id);
+                    var refEqual = del.Equals(item); 
+                    // del.Delete(item.Id);
+                    oldList.Remove(del);
+                }
+            }
+        }
     }
 }

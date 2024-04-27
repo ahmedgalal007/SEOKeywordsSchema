@@ -2,8 +2,9 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using SEOKeywordsSchema.Schemas.Contracts.BaseValueTypes;
-using SEOKeywordsSchema.Schemas.Entities;
+using SEOKeywordsSchema.Schemas.SchemaEntities;
 using SEOKeywordsSchema.Schemas.SchemaProperties.Things.Properties;
+using SEOKeywordsSchema.Schemas.Types;
 
 namespace SEOKeywordsSchema.Schemas.test.SchemaProperties.Things.Properties
 {

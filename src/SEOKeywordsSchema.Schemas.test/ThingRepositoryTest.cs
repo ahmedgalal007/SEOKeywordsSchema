@@ -2,10 +2,11 @@ using Moq;
 using Bogus;
 using Host.Persistence.Contexts;
 using FluentAssertions;
-using SEOKeywordsSchema.Schemas.Entities;
+using SEOKeywordsSchema.Schemas.SchemaEntities;
 using Microsoft.EntityFrameworkCore;
-using SEOKeywordsSchema.Schemas.SchemaProperties.BaseMixedTypes;
-using SEOKeywordsSchema.Schemas.Contracts.BaseValueTypes;
+using SEOKeywordsSchema.Schemas.SchemaProperties.Things.Properties;
+using SEOKeywordsSchema.Schemas.Types;
+using SEOKeywordsSchema.Schemas.SchemaEntities.Actions.AssessActions.ReactActions;
 
 
 namespace SEOKeywordsSchema.Schemas.test;
@@ -50,13 +51,13 @@ public class ThingRepositoryTest
     {
         var faker = new Faker<Thing>()
             .RuleFor(c => c.Id, f => Guid.NewGuid())
-            .RuleFor(c => c.AdditionalType, f => new Text(f.Vehicle.Manufacturer()))
-            .RuleFor(c => c.Description, f => f.Vehicle.Manufacturer())
-            .RuleFor(c => c.DisambiguatingDescription, f => new Text(f.Vehicle.Model()))
+            .RuleFor(c => c.AdditionalType, f => new AdditionalType(f.Vehicle.Manufacturer()))
+            .RuleFor(c => c.Description, f => new Description(f.Vehicle.Manufacturer()))
+            .RuleFor(c => c.DisambiguatingDescription, f => new DisambiguatingDescription(f.Vehicle.Model()))
             .RuleFor(c => c.Image, f => new Image(new URL(f.Image.LoremPixelUrl())))
-            .RuleFor(c => c.SameAs, f => new URL("http://aaa.bbb"))
+            .RuleFor(c => c.SameAs, f => new SameAs("http://aaa.bbb"))
             .RuleFor(c => c.MainEntityOfPage, f => new MainEntityOfPage(new URL("http://ammm.com")))
-            .RuleFor(c => c.PotentialAction, f => new URL("http://sss.com").ToString())
+            .RuleFor(c => c.PotentialAction, f => new PotentialAction(new LikeAction()))
             // .RuleFor(c => c.SchemaNameSpace, f => (Func<string>)(() => "SEOKeywordsSchema.Schemas.Things"))
             .RuleFor(c => c.SubjectOf, f => new SubjectOf(new CreativeWork()));
 
