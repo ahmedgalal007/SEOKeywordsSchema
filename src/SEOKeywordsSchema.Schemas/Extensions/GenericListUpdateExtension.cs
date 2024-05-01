@@ -9,17 +9,16 @@ using System.Threading.Tasks;
 namespace SEOKeywordsSchema.Schemas.Extensions;
 public static class GenericListUpdateExtension
 {
-    internal static void Update<T>(this List<T>? oldList, List<T>? newList, bool withRemove = true)
-        where T : IValuesMember<T>
+    internal static void Update<T>(this IEnumerable<T>? oldList, IEnumerable<T>? newList, bool withRemove = false)
+        where T : BaseSchemaEntity, IValuesMember<T>
     {
         if (newList is null)
         {
-            oldList?.Clear();
             oldList = null;
             return;
         }
 
-        newList.ForEach(nL =>
+        newList.ToList().ForEach(nL =>
         {
             if (oldList?.Any(oL => oL.Id.Equals(nL.Id)) ?? false)
             {
@@ -27,7 +26,7 @@ public static class GenericListUpdateExtension
             }
             else
             {
-                oldList?.Add(nL);
+                oldList?.Append(nL);
             };
         });
 
@@ -35,7 +34,7 @@ public static class GenericListUpdateExtension
         {
             List<T> ToDeleteItems = new();
 
-            oldList?.ForEach(oL =>
+            oldList?.ToList().ForEach(oL =>
             {
                 // if old item Id not exisits in new item remove it
                 if (oL.Id != default && !newList.Any(nL => nL.Id.Equals(oL.Id)))
@@ -45,16 +44,18 @@ public static class GenericListUpdateExtension
                 }
             });
 
-            foreach (var item in ToDeleteItems)
-            {
-                if (item.Id != default && oldList.Any(oL => oL.Id.Equals(item.Id)))
-                {
-                    var del = oldList.First(e => e.Id == item.Id);
-                    var refEqual = del.Equals(item); 
-                    // del.Delete(item.Id);
-                    oldList.Remove(del);
-                }
-            }
+            oldList.Except(ToDeleteItems);
+
+            //foreach (var item in ToDeleteItems)
+            //{
+            //    if (item.Id != default && oldList.Any(oL => oL.Id.Equals(item.Id)))
+            //    {
+            //        var del = oldList.First(e => e.Id == item.Id);
+            //        var refEqual = del.Equals(item); 
+            //        // del.Delete(item.Id);
+            //        oldList.Remove(del);
+            //    }
+            //}
         }
     }
 }

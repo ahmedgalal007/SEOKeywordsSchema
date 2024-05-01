@@ -7,8 +7,7 @@ using SEOKeywordsSchema.Schemas.SchemaEntities;
 namespace SEOKeywordsSchema.Schemas.Schema.Org.Types;
 // [Owned]
 [EntityTypeConfiguration(typeof(TypeConfigurationBase<Text>))]
-public class Text : ValueObject, ISchemaType<URL>,
-                    IValuesMember<Text>,
+public class Text : BaseSchemaEntity, IValuesMember<Text>, ISchemaType<URL>,
                     IEquatable<Text>, IEquatable<URL>, IEquatable<string>
 {
     protected Text() { }
@@ -18,11 +17,12 @@ public class Text : ValueObject, ISchemaType<URL>,
     }
     public string Value { get; set; } = string.Empty;
     public DefaultIdType Id { get; set; }
+    Text? IValuesMember<DefaultIdType, Text>.Value { get; set; }
 
-    protected override IEnumerable<Text> GetEqualityComponents()
-    {
-        yield return Value;
-    }
+    //protected override IEnumerable<Text> GetEqualityComponents()
+    //{
+    //    yield return Value;
+    //}
     public override bool Equals(object? obj)
     {
         if (base.Equals(obj)) return true;
@@ -34,17 +34,17 @@ public class Text : ValueObject, ISchemaType<URL>,
     }
 
 
-    public override int GetHashCode()
-    {
-        //return Value.GetHashCode();
-        return GetEqualityComponents()
-            .Select(x => x != null ? x.GetHashCode() : 0)
-            .Aggregate((x, y) => x ^ y);
-    }
+    //public override int GetHashCode()
+    //{
+    //    //return Value.GetHashCode();
+    //    return GetEqualityComponents()
+    //        .Select(x => x != null ? x.GetHashCode() : 0)
+    //        .Aggregate((x, y) => x ^ y);
+    //}
 
     public bool Equals(Text? other)
     {
-        return Id == other?.Id && Value == other?.Value;
+        return Id == other?.Id || Value == other?.Value;
     }
 
     public bool Equals(string? other)
@@ -77,6 +77,10 @@ public class Text : ValueObject, ISchemaType<URL>,
         return null;
     }
 
+    public Boolean Equals(IValuesMember<DefaultIdType, Text>? other)
+    {
+        return Id == other?.Id && Value == other?.Value;
+    }
 
     public static implicit operator Text(string value)
     {

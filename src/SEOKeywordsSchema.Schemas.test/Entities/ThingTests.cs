@@ -8,6 +8,7 @@ using SEOKeywordsSchema.Schemas.Schema.Org.Properties.Thing;
 using SEOKeywordsSchema.Schemas.Schema.Org.Entities;
 using SEOKeywordsSchema.Schemas.Schema.Org.Types;
 using SEOKeywordsSchema.Schemas.Schema.Org.Types.MixedTypes;
+using SEOKeywordsSchema.Schemas.Schema.Org.Entities.Actions;
 
 namespace SEOKeywordsSchema.Schemas.test.Entities
 {
@@ -34,6 +35,7 @@ namespace SEOKeywordsSchema.Schemas.test.Entities
              repo = new ThingRepository(context);
         }
 
+        
         private Thing CreateThing()
         {
             Identifier identifier = new Identifier("Test Schema");
@@ -42,7 +44,7 @@ namespace SEOKeywordsSchema.Schemas.test.Entities
             TextOrURL txtOrUrl = new TextOrURL(name.First());
             URL url = new URL("http://microsoft.com");
             Image img = new Image(url);
-            PotentialAction potentialAction = new PotentialAction( new Action());
+            PotentialAction potentialAction = new(new Action());
             return Thing.Create(identifier, description, name, url.GetCleanUri(), img, potentialAction);
         }
 

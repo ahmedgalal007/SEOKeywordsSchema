@@ -17,9 +17,15 @@ public class Person : Thing, IPersonProperty, IValuesMember<Person>
     public string FaxNumber { get; set; }
     public Place BirthPlace { get; set; }
     public Person Follows { get; set; }
+    public Person? Value { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
     DefaultIdType IValuesMember<DefaultIdType, Person>.Id { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
     public Person Delete(DefaultIdType id)
+    {
+        throw new NotImplementedException();
+    }
+
+    public Boolean Equals(IValuesMember<DefaultIdType, Person>? other)
     {
         throw new NotImplementedException();
     }

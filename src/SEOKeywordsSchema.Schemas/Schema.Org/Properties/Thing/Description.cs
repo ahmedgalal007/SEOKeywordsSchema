@@ -19,7 +19,7 @@ public class Description : TextOrTextObject, ISchemaProperty<Description>
 
     public bool Equals(Description? other)
     {
-        return Equals((TwoValues<Text, TextObject>?)other);
+        return Equals((ITwoValues<Text, TextObject>?)other);
     }
 
 

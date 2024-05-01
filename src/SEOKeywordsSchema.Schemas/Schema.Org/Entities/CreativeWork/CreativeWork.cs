@@ -18,11 +18,17 @@ public class CreativeWork : BaseSchemaEntity, ISchemaEntity, IValuesMember<Creat
     public virtual string TypeName { get; protected set; } = nameof(CreativeWork);
     public string SchemaType { get; set; }
     public Thing? Parent { get; set; }
+    public CreativeWork? Value { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
     DefaultIdType IValuesMember<DefaultIdType, CreativeWork>.Id { get; set; }
 
     public CreativeWork Delete(DefaultIdType id)
     {
         return this;
+    }
+
+    public Boolean Equals(IValuesMember<DefaultIdType, CreativeWork>? other)
+    {
+        throw new NotImplementedException();
     }
 
     public bool IsLeafe()

@@ -1,5 +1,4 @@
 using System.ComponentModel.DataAnnotations.Schema;
-using MassTransit;
 using SEOKeywordsSchema.Schemas.Contracts.Interfaces;
 namespace SEOKeywordsSchema.Schemas.Contracts;
 
@@ -10,7 +9,7 @@ public abstract class BaseEntity : BaseEntity<DefaultIdType>
 
 public abstract class BaseEntity<TId> : IEntity<TId>
 {
-    public TId Id { get; protected set; } = default!;
+    public TId Id { get; set; } = default!;
 
     [NotMapped]
     public List<DomainEvent> DomainEvents { get; } = new();

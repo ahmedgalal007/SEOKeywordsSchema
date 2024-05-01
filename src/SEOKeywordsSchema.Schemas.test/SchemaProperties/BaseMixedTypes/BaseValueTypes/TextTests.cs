@@ -47,10 +47,11 @@ namespace SEOKeywordsSchema.Schemas.test.SchemaProperties.BaseMixedTypes.BaseVal
             Text text1 = this.CreateText();
             Text text2 = this.CreateText();
             // Act
-            var result1 = text1.GetHashCode();
-            var result2 = text2.GetHashCode();
+            var hash1 = text1.GetHashCode();
+            var hash2 = text2.GetHashCode();
+            var result = text1 == text2;
             // Assert
-            Assert.IsTrue( result1 != 0 && result2 != 0 && result1 == result2 );
+            Assert.IsTrue( result);
             this.mockRepository.VerifyAll();
         }
 

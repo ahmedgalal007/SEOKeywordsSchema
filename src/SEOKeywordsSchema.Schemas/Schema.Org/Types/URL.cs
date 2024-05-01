@@ -6,8 +6,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SEOKeywordsSchema.Schemas.Schema.Org.Types;
 [EntityTypeConfiguration(typeof(TypeConfigurationBase<URL>))]
-public class URL : ValueObject, ISchemaType<URL>, 
-                    IValuesMember<URL>,
+public class URL : BaseSchemaEntity, IValuesMember<URL>, ISchemaType<URL>,
                     IEquatable<URL>, IEquatable<Text>, IEquatable<string>
 {
     public URL() { }
@@ -15,11 +14,12 @@ public class URL : ValueObject, ISchemaType<URL>,
 
     public Uri Value { get; set; }
     public DefaultIdType Id { get; set; }
+    URL? IValuesMember<DefaultIdType, URL>.Value { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
-    protected override IEnumerable<object> GetEqualityComponents()
-    {
-        yield return Value;
-    }
+    //protected override IEnumerable<object> GetEqualityComponents()
+    //{
+    //    yield return Value;
+    //}
 
     public override bool Equals(object? obj)
     {
@@ -60,6 +60,13 @@ public class URL : ValueObject, ISchemaType<URL>,
     }
 
     public static string Help() => "Url";
+
+    public Boolean Equals(IValuesMember<DefaultIdType, URL>? other)
+    {
+        throw new NotImplementedException();
+    }
+
+    
 
     public static implicit operator URL(string value)
     {

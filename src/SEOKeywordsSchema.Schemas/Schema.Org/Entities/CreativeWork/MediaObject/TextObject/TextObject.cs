@@ -11,14 +11,22 @@ using System.Threading.Tasks;
 namespace SEOKeywordsSchema.Schemas.Schema.Org.Entities.CreativeWork.MediaObject.TextObject;
 
 [EntityTypeConfiguration(typeof(EntityTypeConfigurationBase<TextObject>))]
-public class TextObject : MediaObject, IValuesMember<TextObject>
+public class TextObject : BaseSchemaEntity, IValuesMember<TextObject>
 {
-    public override string TypeName { get; protected set; } = nameof(TextObject);
-    DefaultIdType IValuesMember<DefaultIdType, TextObject>.Id { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+    public TextObject? Value { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+
+    // public override string TypeName { get; protected set; } = nameof(TextObject);
+    // public TextObject? Value { get; set; }
+    // DefaultIdType IValuesMember<DefaultIdType, TextObject>.Id { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
     public TextObject Delete(DefaultIdType id)
     {
         return this;
+    }
+
+    public Boolean Equals(IValuesMember<DefaultIdType, TextObject>? other)
+    {
+        throw new NotImplementedException();
     }
 
     public TextObject Update(TextObject value)

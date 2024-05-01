@@ -5,7 +5,7 @@ using SEOKeywordsSchema.Schemas.Persistence.Contexts;
 
 namespace Host.Persistence.Contexts;
 
-public class ApplicationDbContext : SEOKeywordsSchemaDbContext
+public class ApplicationDbContext : BdContext //SEOKeywordsSchemaDbContext
 {
     public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options):base(options)
     {

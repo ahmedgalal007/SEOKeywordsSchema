@@ -3,7 +3,7 @@ using SEOKeywordsSchema.Schemas.Contracts.BaseValueTypes.ValueObjects.Interfaces
 using SEOKeywordsSchema.Schemas.Contracts.Interfaces;
 
 namespace SEOKeywordsSchema.Schemas.Schema.Org.Types;
-public class ExmpName : ValueObject, ISchemaType<URL>,
+public class ExmpName : BaseSchemaEntity, ISchemaType<URL>,
                     IValuesMember<Text>,
                     IEquatable<ExmpName>
 {
@@ -18,6 +18,7 @@ public class ExmpName : ValueObject, ISchemaType<URL>,
     }
     public string Value { get; }
     public DefaultIdType Id { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+    Text? IValuesMember<DefaultIdType, Text>.Value { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
     public static Result<ExmpName> Create(string name)
     {
@@ -41,23 +42,24 @@ public class ExmpName : ValueObject, ISchemaType<URL>,
         throw new NotImplementedException();
     }
 
-    public bool Equals(ExmpName? other)
-    {
-        return Value.SequenceEqual(other.Value);
-    }
 
     public override bool Equals(object? obj)
     {
         return obj is ExmpName name && name.Equals(this);
     }
 
-    public Text Update(Text value)
+    public Boolean Equals(IValuesMember<DefaultIdType, Text>? other)
     {
         throw new NotImplementedException();
     }
 
-    protected override IEnumerable<object> GetEqualityComponents()
+    public Boolean Equals(ExmpName? other)
     {
-        yield return Value;
+        throw new NotImplementedException();
+    }
+
+    public Text Update(Text value)
+    {
+        throw new NotImplementedException();
     }
 }

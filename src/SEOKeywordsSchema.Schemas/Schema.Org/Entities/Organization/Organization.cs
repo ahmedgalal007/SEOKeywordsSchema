@@ -1,18 +1,19 @@
 ﻿using SEOKeywordsSchema.Schemas.Contracts.BaseValueTypes.ValueObjects.Interfaces;
-using SEOKeywordsSchema.Schemas.Schema.Org.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace SEOKeywordsSchema.Schemas.Schema.Org.Entities.Organizations;
 public class Organization : Thing, IValuesMember<Organization>
 {
     public override string TypeName { get; protected set; } = nameof(Organization);
+    public Organization? Value { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
     DefaultIdType IValuesMember<DefaultIdType, Organization>.Id { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
     public Organization Delete(DefaultIdType id)
+    {
+        throw new NotImplementedException();
+    }
+
+    public Boolean Equals(IValuesMember<DefaultIdType, Organization>? other)
     {
         throw new NotImplementedException();
     }
